@@ -1,1 +1,1 @@
-code for my personal page ([adhvaidh.qzz.io](url))
+code for my personal page ([adhvaidh.qzz.io](adhvaidh.qzz.io))
