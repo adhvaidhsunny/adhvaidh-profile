@@ -40,8 +40,11 @@
     .item small{color:var(--muted);}
     hr{border:0; border-top:1px solid var(--rule); margin:26px 0;}
     a{color:var(--link); text-decoration:underline;}
-    .tl{position:relative; padding-left:0;}
-    .tl::before {
+    .timeline{
+      position: relative;
+      padding-left: 0; /* we use grid for spacing */
+    }
+    .timeline::before {
       content: "";
       position: absolute;
       left: calc(var(--gutter)/2 - 1px);
