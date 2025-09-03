@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adhvaidh Sunny — Resume</title>
+  <title>Adhvaidh Sunny</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -62,6 +62,17 @@
       background:var(--link);
       justify-self:center;
     }
+    .name-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .profile-pic {
+      width: 64px;    
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
     .tl-title b{font-weight:700;}
     .tl-date{white-space:nowrap; color:var(--muted); font-size:14px;}
     .chip{display:inline-block; border:1px solid var(--rule); padding:2px 8px; border-radius:999px; font-size:12px; color:var(--muted); margin:6px 6px 0 0;}
@@ -71,7 +82,10 @@
 </head>
 <body>
   <main class="page">
-    <h1>Adhvaidh Sunny</h1>
+    <h1 class="name-header">
+      <img src="adhvaidh-sunny.png" alt="Adhvaidh Sunny" class="profile-pic">
+      Adhvaidh Sunny
+    </h1>
     <div class="topline">
       <a href="mailto:adhvaidhsunny1@gmail.com">adhvaidhsunny1@gmail.com</a> |
       <a href="https://github.com/adhvaidhsunny" target="_blank" rel="noreferrer">github</a> |
