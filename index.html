@@ -1,10 +1,112 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>My Page</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adhvaidh Sunny — Resume</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --fg:#111;
+      --muted:#444;
+      --link:#0a66c2;
+      --rule:#e8e8e8;
+      --bg:#fff;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --fg:#eee; --muted:#b7b7b7; --link:#76b7ff; --rule:#2a2a2a; --bg:#0d0d0d;
+      }
+    }
+    html,body{background:var(--bg); color:var(--fg); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; line-height:1.6;}
+    .page{max-width:820px; margin:48px auto 96px; padding:0 20px;}
+    h1{font-size:48px; line-height:1.1; margin:0 0 8px;}
+    .topline{display:flex; flex-wrap:wrap; gap:14px; align-items:center; color:var(--muted); margin:6px 0 22px;}
+    .topline a{color:var(--fg); text-decoration:underline;}
+    .summary{color:var(--muted); margin:10px 0 34px;}
+    h2{font-size:22px; margin:38px 0 14px;}
+    .item{margin:10px 0 14px;}
+    .item b{font-weight:600;}
+    .item small{color:var(--muted);}
+    hr{border:0; border-top:1px solid var(--rule); margin:26px 0;}
+    a{color:var(--link); text-decoration:underline;}
+    .view-toggle{display:flex; gap:10px; align-items:center; margin-top:8px; user-select:none;}
+    .view-toggle input{accent-color:var(--link);}
+    .list-view{display:block;}
+    .timeline{display:none;}
+    #showTimeline:checked ~ .views .list-view{display:none;}
+    #showTimeline:checked ~ .views .timeline{display:block;}
+    .tl{position:relative; margin:10px 0 0 0; padding-left:22px;}
+    .tl:before{content:""; position:absolute; left:8px; top:0; bottom:0; width:2px; background:var(--rule);}
+    .tl-item{position:relative; margin:0 0 18px 0; padding-left:10px;}
+    .tl-item:before{content:""; position:absolute; left:-14px; top:.4em; width:10px; height:10px; border-radius:50%; background:var(--link);}
+    .stack{display:block; color:var(--muted); font-size:14px;}
+    .chip{display:inline-block; border:1px solid var(--rule); padding:2px 8px; border-radius:999px; font-size:12px; color:var(--muted); margin:6px 6px 0 0;}
+    .skills{display:flex; flex-wrap:wrap; gap:8px;}
+    .footer{color:var(--muted); font-size:14px; margin-top:28px;}
+  </style>
 </head>
 <body>
-  <h1>Welcome to my site!</h1>
-  <p><a href="https://example.com">Example Link</a></p>
+  <main class="page">
+    <h1>Adhvaidh Sunny</h1>
+    <div class="topline">
+      <a href="mailto:adhvaidhsunny1@gmail.com">adhvaidhsunny1@gmail.com</a> |
+      <a href="https://github.com/adhvaidhsunny" target="_blank" rel="noreferrer">github</a> |
+      <a href="https://www.linkedin.com/in/adhvaidh-sunny" target="_blank" rel="noreferrer">linkedin</a> |
+      <span>+1&nbsp;925-660-5146</span>
+    </div>
+
+    <div class="summary">machine learning &amp; software engineer • ships production features and models • loves clear UX and reliable infra</div>
+
+    <label class="view-toggle">
+      <input type="checkbox" id="showTimeline">
+      <span>show timeline</span>
+    </label>
+
+    <div class="views">
+      <section class="list-view">
+        <h2>experience</h2>
+        <div class="item"><b>Metrum AI</b> — Machine Learning Engineer Intern <small>· Sep 2024 – Feb 2025</small></div>
+        <div class="item"><b>The Possible Company</b> — Software Engineer <small>· Apr 2024 – Aug 2024</small></div>
+        <div class="item"><b>Concha Labs</b> — Machine Learning Engineer Intern <small>· Oct 2022 – Aug 2023</small></div>
+
+        <h2>projects</h2>
+        <div class="item"><b>GourmetGuideAI</b> <small>· 2023 – present</small></div>
+
+        <h2>volunteer</h2>
+        <div class="item"><b>Kids Against Hunger Bay Area (501(c)(3) - Creative Media Director & Staff Volunteer</b> <small>· Jun 2022 – present</small></div>
+        <div class="item"><b>CyberWisdom (501(c)(3)) - Founder & Presenter</b> <small>· Jun 2023 – present</small></div>
+
+        <h2>skills</h2>
+        <div class="skills">
+          <span class="chip">Python</span><span class="chip">Java</span><span class="chip">C++</span>
+          <span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">SQL</span>
+          <span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">OpenCV</span>
+          <span class="chip">HuggingFace</span><span class="chip">LangChain</span><span class="chip">React</span>
+          <span class="chip">React Native</span><span class="chip">Node.js</span><span class="chip">Docker</span>
+          <span class="chip">GCP</span><span class="chip">Azure</span><span class="chip">Linux</span>
+          <span class="chip">CI/CD</span><span class="chip">GraphQL</span>
+        </div>
+      </section>
+
+      <section class="timeline">
+        <h2>timeline</h2>
+        <div class="tl">
+          <div class="tl-item"><b>Metrum AI — ML Engineer Intern</b> <small>Sep 2024 – Feb 2025</small></div>
+          <div class="tl-item"><b>The Possible Company — Software Engineer</b> <small>Apr 2024 – Aug 2024</small></div>
+          <div class="tl-item"><b>Concha Labs — ML Engineer Intern</b> <small>Oct 2022 – Aug 2023</small></div>
+          <div class="tl-item"><b>GourmetGuideAI</b> <small>2023 – present</small></div>
+          <div class="tl-item"><b>CyberWisdom (501(c)(3))</b> <small>Jun 2023 – present</small></div>
+          <div class="tl-item"><b>Kids Against Hunger — Bay Area</b> <small>Jun 2022 – present</small></div>
+        </div>
+      </section>
+    </div>
+
+    <hr>
+    <div class="footer">
+<!--       Last updated 2025 • <a href="Adhvaidh-Sunny-Resume-2025.pdf" download>Download PDF</a> -->
+    </div>
+  </main>
 </body>
 </html>
