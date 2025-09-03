@@ -40,9 +40,26 @@
     hr{border:0; border-top:1px solid var(--rule); margin:26px 0;}
     a{color:var(--link); text-decoration:underline;}
     .tl{position:relative; padding-left:0;}
-    .tl::before{content:""; position:absolute; left:calc(var(--gutter)/2 - 1px); top:0; bottom:0; width:2px; background:var(--rule);}
+    .tl::before {
+      content: "";
+      position: absolute;
+      left: calc(var(--gutter)/2 - 1px);
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--rule);
+      z-index: 0; /* Pushes the line behind */
+    }
     .tl-row{display:grid; grid-template-columns: var(--gutter) 1fr auto; column-gap:12px; align-items:baseline; padding:8px 0;}
-    .tl-dot{width:var(--dot); height:var(--dot); border-radius:50%; background:var(--link); justify-self:center;}
+    .tl-dot {
+      width: var(--dot);
+      height: var(--dot);
+      border-radius: 50%;
+      background: var(--link);
+      justify-self: center;
+      position: relative;
+      z-index: 1; /* Brings dots in front */
+    }
     .tl-title b{font-weight:700;}
     .tl-date{white-space:nowrap; color:var(--muted); font-size:14px;}
     .chip{display:inline-block; border:1px solid var(--rule); padding:2px 8px; border-radius:999px; font-size:12px; color:var(--muted); margin:6px 6px 0 0;}
