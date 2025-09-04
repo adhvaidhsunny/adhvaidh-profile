@@ -42,27 +42,34 @@
     a{color:var(--link); text-decoration:underline;}
     .timeline{
       position: relative;
-      padding-left: 0; /* we use grid for spacing */
+      padding-left: 0;
     }
-    .timeline::before {
-      content: "";
-      position: absolute;
+    .timeline::before{
+      content:"";
+      position:absolute;
       left: calc(var(--gutter)/2 - 1px);
-      top: 0;
+      top: 0;         /* starts below the heading now */
       bottom: 0;
       width: 2px;
       background: var(--rule);
       z-index: 0;
     }
-    .tl-row{display:grid; grid-template-columns: var(--gutter) 1fr auto; column-gap:12px; align-items:baseline; padding:8px 0;}
-    .tl-dot {
+    
+    .tl-row{
+      display:grid;
+      grid-template-columns: var(--gutter) 1fr auto;
+      column-gap:12px;
+      align-items:baseline;
+      padding:8px 0;
+    }
+    .tl-dot{
       width: var(--dot);
       height: var(--dot);
-      border-radius: 50%;
+      border-radius:50%;
       background: var(--link);
-      justify-self: center;
-      position: relative;
-      z-index: 1;
+      justify-self:center;
+      position:relative;
+      z-index:1;
     }
     .tl-title b{font-weight:700;}
     .tl-date{white-space:nowrap; color:var(--muted); font-size:14px;}
@@ -86,22 +93,24 @@
       <span>+1&nbsp;925-660-5146</span>
     </div>
     <div class="summary">18 y/o machine learning &amp; software engineer</div>
-    <section class="timeline">
+    <section>
       <h2>experience</h2>
-      <div class="tl-row">
-        <div class="tl-dot"></div>
-          <div class="tl-title"><b>Concha Labs — ML Engineer Intern</b></div>
-        <div class="tl-date">Oct 2022 – Aug 2023</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-dot"></div>
-          <div class="tl-title"><b>The Possible Company — Software Engineer</b></div>
-        <div class="tl-date">Apr 2024 – Aug 2024</div>
-      </div>
-      <div class="tl">
+      <div class="timeline">   <!-- line attaches here -->
         <div class="tl-row">
           <div class="tl-dot"></div>
-            <div class="tl-title"><b>Metrum AI — ML Engineer Intern</b></div>
+          <div class="tl-title"><b>Concha Labs — ML Engineer Intern</b></div>
+          <div class="tl-date">Oct 2022 – Aug 2023</div>
+        </div>
+    
+        <div class="tl-row">
+          <div class="tl-dot"></div>
+          <div class="tl-title"><b>The Possible Company — Software Engineer</b></div>
+          <div class="tl-date">Apr 2024 – Aug 2024</div>
+        </div>
+    
+        <div class="tl-row">
+          <div class="tl-dot"></div>
+          <div class="tl-title"><b>Metrum AI — ML Engineer Intern</b></div>
           <div class="tl-date">Sep 2024 – Feb 2025</div>
         </div>
       </div>
