@@ -13,31 +13,57 @@
     rel="stylesheet">
   <style>
     :root {
-      --bg: #fafafa;
+      --bg: #f8fafb;
       --surface: #ffffff;
-      --text: #1a1a1a;
-      --text-muted: #6b6b6b;
-      --accent: #5b4cff;
-      --accent-soft: #e8e5ff;
-      --border: #e5e5e5;
-      --gradient-1: #5b4cff;
-      --gradient-2: #8b5cf6;
-      --gradient-3: #c084fc;
+      --text: #0a1628;
+      --text-muted: #64748b;
+      --accent: #0891b2;
+      --accent-soft: #e0f7fa;
+      --border: #e2e8f0;
+      --gradient-1: #00d4ff;
+      --gradient-2: #00b894;
+      --gradient-3: #0891b2;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0a0a0b;
-        --surface: #141416;
-        --text: #f5f5f5;
-        --text-muted: #8a8a8a;
-        --accent: #8b7cff;
-        --accent-soft: #1e1b2e;
-        --border: #2a2a2d;
-        --gradient-1: #8b7cff;
-        --gradient-2: #a78bfa;
-        --gradient-3: #c4b5fd;
+        --bg: #0a0a0f;
+        --surface: #12141a;
+        --text: #f1f5f9;
+        --text-muted: #94a3b8;
+        --accent: #00d4ff;
+        --accent-soft: #0c2d3d;
+        --border: #1e293b;
+        --gradient-1: #00d4ff;
+        --gradient-2: #00b894;
+        --gradient-3: #0891b2;
       }
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafb;
+      --surface: #ffffff;
+      --text: #0a1628;
+      --text-muted: #64748b;
+      --accent: #0891b2;
+      --accent-soft: #e0f7fa;
+      --border: #e2e8f0;
+      --gradient-1: #00d4ff;
+      --gradient-2: #00b894;
+      --gradient-3: #0891b2;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0a0a0f;
+      --surface: #12141a;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #00d4ff;
+      --accent-soft: #0c2d3d;
+      --border: #1e293b;
+      --gradient-1: #00d4ff;
+      --gradient-2: #00b894;
+      --gradient-3: #0891b2;
     }
 
     * {
@@ -60,17 +86,20 @@
       overflow-x: hidden;
     }
 
-    /* Animated gradient background */
-    .bg-gradient {
+    /* Particle Mesh Background */
+    .particle-canvas {
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      height: 400px;
-      background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
-      opacity: 0.06;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
-      filter: blur(100px);
+      z-index: 0;
+    }
+
+    #particleCanvas {
+      width: 100%;
+      height: 100%;
     }
 
     .container {
@@ -95,12 +124,12 @@
 
     /* Header Section */
     .header {
-      padding: 60px 0 48px;
+      padding: 60px 0 24px;
     }
 
     .header-content {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 24px;
     }
 
@@ -121,47 +150,31 @@
     }
 
     .header-text h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 6px;
+      margin-bottom: 0;
       color: var(--text);
-      background: linear-gradient(135deg, var(--text) 0%, var(--text-muted) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-      animation: nameReveal 0.8s ease-out forwards;
-      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
     }
 
-    /* Fallback for browsers that don't support background-clip */
-    @supports not (background-clip: text) {
-      .header-text h1 {
-        background: none;
-        -webkit-text-fill-color: var(--text);
-      }
+    .header-text h1 .letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: letterReveal 0.5s ease-out forwards;
     }
 
-    .header-text h1::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg,
-          transparent 0%,
-          rgba(91, 76, 255, 0.15) 50%,
-          transparent 100%);
-      animation: shimmer 1.5s ease-out 0.5s forwards;
+    .header-text h1 .space {
+      width: 0.3em;
     }
 
-    @keyframes nameReveal {
+    @keyframes letterReveal {
       0% {
         opacity: 0;
         transform: translateY(20px);
-        filter: blur(8px);
+        filter: blur(4px);
       }
 
       100% {
@@ -171,13 +184,11 @@
       }
     }
 
-    @keyframes shimmer {
-      0% {
-        left: -100%;
-      }
-
-      100% {
-        left: 100%;
+    /* Fallback for browsers that don't support the animation */
+    @supports not (animation: letterReveal 0.5s) {
+      .header-text h1 .letter {
+        opacity: 1;
+        transform: none;
       }
     }
 
@@ -185,6 +196,7 @@
       font-size: 1.1rem;
       color: var(--text-muted);
       font-weight: 400;
+      margin-top: -4px;
     }
 
     .tagline span {
@@ -227,9 +239,55 @@
       opacity: 0.7;
     }
 
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 72px;
+      right: 24px;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      transform: scale(1.05);
+    }
+
+    .theme-toggle svg {
+      width: 20px;
+      height: 20px;
+      color: var(--text);
+    }
+
+    .theme-toggle .sun-icon {
+      display: none;
+    }
+
+    .theme-toggle .moon-icon {
+      display: block;
+    }
+
+    [data-theme="dark"] .theme-toggle .sun-icon {
+      display: block;
+    }
+
+    [data-theme="dark"] .theme-toggle .moon-icon {
+      display: none;
+    }
+
     /* Section Styles */
     .section {
-      padding: 40px 0;
+      padding: 32px 0;
       border-top: 1px solid var(--border);
     }
 
@@ -245,11 +303,12 @@
     }
 
     .section-label {
-      font-size: 0.75rem;
+      font-size: 0.96rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--text-muted);
+      color: var(--text);
+      opacity: 0.8;
       font-family: 'JetBrains Mono', monospace;
     }
 
@@ -264,9 +323,10 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 24px;
+      padding: 18px;
       margin-bottom: 16px;
       transition: all 0.3s ease;
+      position: relative;
     }
 
     .card:hover {
@@ -284,24 +344,24 @@
     }
 
     .card-title {
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 1px;
     }
 
     .card-subtitle {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--text-muted);
+      margin-top: -2px;
     }
 
     .card-date {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--accent);
+      font-size: 0.9rem;
+      color: var(--text);
+      opacity: 0.7;
       white-space: nowrap;
-      padding: 4px 10px;
-      background: var(--accent-soft);
-      border-radius: 6px;
+      margin-top: 4px;
     }
 
     .card-description {
@@ -323,13 +383,13 @@
     /* Company Logo */
     .card-with-logo {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 16px;
     }
 
     .company-logo {
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       border-radius: 12px;
       object-fit: cover;
       flex-shrink: 0;
@@ -346,11 +406,11 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: #f59e0b;
       background: rgba(245, 158, 11, 0.1);
-      padding: 4px 10px;
+      padding: 5px 10px;
       border-radius: 6px;
       margin-bottom: 8px;
     }
@@ -358,6 +418,32 @@
     .award-badge.silver {
       color: #94a3b8;
       background: rgba(148, 163, 184, 0.15);
+    }
+
+    .award-category {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--text);
+      opacity: 0.7;
+    }
+
+    .award-category-label {
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .award-category-dot {
+      opacity: 0.5;
+    }
+
+    .award-category-date {
+      opacity: 0.8;
     }
 
     /* Skills Grid */
@@ -503,70 +589,89 @@
     /* Side Timeline Navigation */
     .side-nav {
       position: fixed;
-      left: 40px;
+      left: 80px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 100;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 12px;
+      pointer-events: auto;
     }
 
     .side-nav-item {
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 10px 16px 10px 0;
+      gap: 24px;
+      padding: 14px 24px 14px 0;
       cursor: pointer;
       text-decoration: none;
       position: relative;
-      border-radius: 0 20px 20px 0;
+      border-radius: 0 24px 24px 0;
       transition: all 0.3s ease;
+      width: fit-content;
     }
 
     .side-nav-item:hover {
-      background: var(--accent-soft);
+      /* Hover style on label instead */
+    }
+
+    .side-nav-right .side-nav-item:hover {
+      /* Hover style on label instead */
     }
 
     .side-nav-indicator {
-      width: 3px;
-      height: 20px;
-      border-radius: 0 4px 4px 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
       background: var(--accent);
-      opacity: 0.25;
+      opacity: 0.3;
       transition: all 0.3s ease;
     }
 
     .side-nav-item:hover .side-nav-indicator {
-      opacity: 0.5;
-      height: 24px;
+      opacity: 0.6;
+      transform: scale(1.2);
     }
 
     .side-nav-item.active .side-nav-indicator {
       opacity: 1;
-      height: 28px;
-      box-shadow: 0 0 12px rgba(91, 76, 255, 0.4);
+      transform: scale(1.4);
+    }
+
+    .side-nav-item.active {
+      /* No background here - it's on the label now */
     }
 
     .side-nav-label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.95rem;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      opacity: 0.4;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      opacity: 0.6;
       transition: all 0.3s ease;
       white-space: nowrap;
     }
 
     .side-nav-item:hover .side-nav-label {
-      opacity: 0.7;
+      opacity: 0.85;
+      color: var(--accent);
+      background: rgba(8, 145, 178, 0.08);
+      padding: 10px 16px;
+      border-radius: 50px;
+      margin: -10px -16px;
     }
 
     .side-nav-item.active .side-nav-label {
       opacity: 1;
       font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 10px 16px;
+      border-radius: 50px;
+      margin: -10px -16px;
     }
 
     /* Hide on mobile */
@@ -575,11 +680,49 @@
         display: none;
       }
     }
+
+    /* Right Side Navigation */
+    .side-nav-right {
+      position: fixed;
+      left: auto;
+      right: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .side-nav-right .side-nav-item {
+      flex-direction: row-reverse;
+      padding: 14px 0 14px 24px;
+      border-radius: 24px 0 0 24px;
+      width: fit-content;
+      margin-left: auto;
+    }
+
+    .side-nav-right .side-nav-indicator {
+      border-radius: 50%;
+    }
+
+    .side-nav-right .side-nav-item.active {
+      /* No background here - it's on the label now */
+    }
+
+    @media (max-width: 1100px) {
+      .side-nav-right {
+        display: none;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="bg-gradient"></div>
+  <div class="particle-canvas">
+    <canvas id="particleCanvas"></canvas>
+  </div>
 
   <!-- Side Timeline Navigation -->
   <nav class="side-nav">
@@ -605,12 +748,59 @@
     </a>
   </nav>
 
+  <!-- Right Side Navigation -->
+  <nav class="side-nav side-nav-right">
+    <a href="#experience" class="side-nav-item" data-section="experience">
+      <span class="side-nav-indicator"></span>
+      <span class="side-nav-label">Experience</span>
+    </a>
+    <a href="#awards" class="side-nav-item" data-section="awards">
+      <span class="side-nav-indicator"></span>
+      <span class="side-nav-label">Awards</span>
+    </a>
+    <a href="#projects" class="side-nav-item" data-section="projects">
+      <span class="side-nav-indicator"></span>
+      <span class="side-nav-label">Projects</span>
+    </a>
+    <a href="#volunteer" class="side-nav-item" data-section="volunteer">
+      <span class="side-nav-indicator"></span>
+      <span class="side-nav-label">Volunteer</span>
+    </a>
+    <a href="#skills" class="side-nav-item" data-section="skills">
+      <span class="side-nav-indicator"></span>
+      <span class="side-nav-label">Skills</span>
+    </a>
+  </nav>
+
   <div class="container">
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+        stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+        stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+      </svg>
+    </button>
     <header class="header">
       <div class="header-content">
         <img src="images/profile.jpg" alt="Adhvaidh Sunny" class="profile-pic">
         <div class="header-text">
-          <h1>Adhvaidh Sunny</h1>
+          <h1><span class="letter" style="animation-delay: 0.0s">A</span><span class="letter"
+              style="animation-delay: 0.03s">d</span><span class="letter" style="animation-delay: 0.06s">h</span><span
+              class="letter" style="animation-delay: 0.09s">v</span><span class="letter"
+              style="animation-delay: 0.12s">a</span><span class="letter" style="animation-delay: 0.15s">i</span><span
+              class="letter" style="animation-delay: 0.18s">d</span><span class="letter"
+              style="animation-delay: 0.21s">h</span><span class="letter space"
+              style="animation-delay: 0.24s"></span><span class="letter" style="animation-delay: 0.27s">S</span><span
+              class="letter" style="animation-delay: 0.30s">u</span><span class="letter"
+              style="animation-delay: 0.33s">n</span><span class="letter" style="animation-delay: 0.36s">n</span><span
+              class="letter" style="animation-delay: 0.39s">y</span></h1>
           <p class="tagline">18 y/o <span>machine learning</span> & <span>software engineer</span></p>
         </div>
       </div>
@@ -665,6 +855,21 @@
 
         <div class="card">
           <div class="card-with-logo">
+            <img src="images/logo-riverlog.png" alt="Riverlog Software" class="company-logo">
+            <div class="card-content">
+              <div class="card-row">
+                <div>
+                  <div class="card-title">Riverlog Software</div>
+                  <div class="card-subtitle">AI Systems Engineer</div>
+                </div>
+                <span class="card-date">Mar 2025 – Present</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-with-logo">
             <img src="images/logo-metrum.jpg" alt="Metrum AI" class="company-logo">
             <div class="card-content">
               <div class="card-row">
@@ -672,7 +877,7 @@
                   <div class="card-title">Metrum AI</div>
                   <div class="card-subtitle">Machine Learning Engineer Intern</div>
                 </div>
-                <span class="card-date">2024 – 2025</span>
+                <span class="card-date">Oct 2024 – Mar 2025</span>
               </div>
             </div>
           </div>
@@ -687,7 +892,7 @@
                   <div class="card-title">The Possible Company</div>
                   <div class="card-subtitle">Founding AI Engineer</div>
                 </div>
-                <span class="card-date">2024</span>
+                <span class="card-date">Feb 2024 – Oct 2024</span>
               </div>
             </div>
           </div>
@@ -700,9 +905,9 @@
               <div class="card-row">
                 <div>
                   <div class="card-title">Concha Labs</div>
-                  <div class="card-subtitle">Machine Learning Engineer Intern</div>
+                  <div class="card-subtitle">Machine Learning Engineer</div>
                 </div>
-                <span class="card-date">2022 – 2023</span>
+                <span class="card-date">Sep 2022 – Sep 2023</span>
               </div>
             </div>
           </div>
@@ -717,13 +922,17 @@
         </div>
 
         <div class="card">
+          <div class="award-category">
+            <span class="award-category-label">Hackathon</span>
+            <span class="award-category-dot">•</span>
+            <span class="award-category-date">Oct 2025</span>
+          </div>
           <div class="award-badge">🏆 1st Place</div>
           <div class="card-row">
             <div>
               <div class="card-title">OpenAI Agents Hack SF — The Future of Agents</div>
               <div class="card-subtitle">OpenAI, ElevenLabs, Snowflake</div>
             </div>
-            <span class="card-date">Oct 2025</span>
           </div>
           <div class="card-description">
             Built Guida, an agent designed to help older adults navigate the web, learning from user behavior &
@@ -732,13 +941,17 @@
         </div>
 
         <div class="card">
+          <div class="award-category">
+            <span class="award-category-label">Hackathon</span>
+            <span class="award-category-dot">•</span>
+            <span class="award-category-date">Oct 2025</span>
+          </div>
           <div class="award-badge">🏆 1st Place — Best Use of ElevenLabs</div>
           <div class="card-row">
             <div>
-              <div class="card-title">UC Berkeley Cal Hacks 12.0</div>
+              <div class="card-title">UC Berkeley Cal Hacks</div>
               <div class="card-subtitle">UC Berkeley • 3,300+ participants</div>
             </div>
-            <span class="card-date">Oct 2025</span>
           </div>
           <div class="card-description">
             Built Jarvis, an accessibility-first voice agent for people with mobility impairments that can see the
@@ -747,24 +960,32 @@
         </div>
 
         <div class="card">
+          <div class="award-category">
+            <span class="award-category-label">Hackathon</span>
+            <span class="award-category-dot">•</span>
+            <span class="award-category-date">Nov 2025</span>
+          </div>
           <div class="award-badge">🏆 Winner — Exploring Hybrid Intelligence</div>
           <div class="card-row">
             <div>
               <div class="card-title">HackPrinceton</div>
               <div class="card-subtitle">Princeton University • 600+ participants</div>
             </div>
-            <span class="card-date">Nov 2025</span>
           </div>
         </div>
 
         <div class="card">
+          <div class="award-category">
+            <span class="award-category-label">Hackathon</span>
+            <span class="award-category-dot">•</span>
+            <span class="award-category-date">2025</span>
+          </div>
           <div class="award-badge silver">🥈 2nd Place</div>
           <div class="card-row">
             <div>
               <div class="card-title">NASA Space Hacks 2025 Regional</div>
               <div class="card-subtitle">NASA Ames • 422 participants</div>
             </div>
-            <span class="card-date">2025</span>
           </div>
           <div class="card-description">
             Built novel approach for extraplanetary planet discovery using NASA datasets.
@@ -924,7 +1145,8 @@
   // Side navigation scroll tracking
   document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('section[id]');
-    const navItems = document.querySelectorAll('.side-nav-item');
+    const leftNavItems = document.querySelectorAll('.side-nav:not(.side-nav-right) .side-nav-item');
+    const rightNavItems = document.querySelectorAll('.side-nav-right .side-nav-item');
     const navProgress = document.getElementById('navProgress');
     const sideNav = document.querySelector('.side-nav');
 
@@ -938,7 +1160,17 @@
         }
       });
 
-      navItems.forEach((item, index) => {
+      // Update left nav
+      leftNavItems.forEach((item, index) => {
+        if (index === activeIndex) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      // Update right nav
+      rightNavItems.forEach((item, index) => {
         if (index === activeIndex) {
           item.classList.add('active');
         } else {
@@ -956,6 +1188,103 @@
 
     window.addEventListener('scroll', updateActiveNav);
     updateActiveNav(); // Initial call
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    // Check for saved theme or default to system preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      html.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      html.setAttribute('data-theme', 'dark');
+    } else {
+      html.setAttribute('data-theme', 'light');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+
+    // Minimal Twinkling Starfield
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    let time = 0;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initStars();
+    }
+
+    function initStars() {
+      stars = [];
+      const count = Math.floor((canvas.width * canvas.height) / 8000); // Density based on screen size
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          size: 0.5 + Math.random() * 1.5,
+          twinkleSpeed: 0.5 + Math.random() * 2,
+          twinkleOffset: Math.random() * Math.PI * 2,
+          baseOpacity: 0.3 + Math.random() * 0.5
+        });
+      }
+    }
+
+    function draw() {
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      time += 0.02;
+
+      stars.forEach(star => {
+        // Gentle twinkle
+        const twinkle = 0.5 + Math.sin(time * star.twinkleSpeed + star.twinkleOffset) * 0.5;
+        const opacity = star.baseOpacity * twinkle;
+
+        if (isDark) {
+          // Cyan-tinted stars
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(200, 230, 255, ${opacity})`;
+          ctx.fill();
+
+          // Subtle glow for larger stars
+          if (star.size > 1.2) {
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.size * 2, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0, 212, 255, ${opacity * 0.15})`;
+            ctx.fill();
+          }
+        } else {
+          // Teal dots for light mode - more visible
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(8, 145, 178, ${opacity * 0.7})`;
+          ctx.fill();
+
+          // Add glow in light mode too
+          if (star.size > 1.2) {
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.size * 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(8, 145, 178, ${opacity * 0.15})`;
+            ctx.fill();
+          }
+        }
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    draw();
   });
 </script>
 
