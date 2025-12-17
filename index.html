@@ -323,8 +323,8 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 18px;
-      margin-bottom: 16px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
       transition: all 0.3s ease;
       position: relative;
     }
@@ -332,7 +332,6 @@
     .card:hover {
       border-color: var(--accent);
       box-shadow: 0 4px 20px rgba(91, 76, 255, 0.08);
-      transform: translateY(-4px);
     }
 
     .card-row {
@@ -350,14 +349,14 @@
     }
 
     .card-subtitle {
-      font-size: 1rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
       margin-top: -2px;
     }
 
     .card-date {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
+      font-size: 0.93rem;
       color: var(--text);
       opacity: 0.7;
       white-space: nowrap;
@@ -365,10 +364,20 @@
     }
 
     .card-description {
-      margin-top: 12px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      margin-top: 0;
       font-size: 0.95rem;
       color: var(--text-muted);
       line-height: 1.6;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card:hover .card-description {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 12px;
     }
 
     .card-description ul {
@@ -380,7 +389,43 @@
       margin-bottom: 4px;
     }
 
-    /* Company Logo */
+    /* Embedded Video */
+    .card-video {
+      margin-top: 12px;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      max-width: 100%;
+    }
+
+    .card-video iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Card Thumbnail */
+    .card-thumbnail {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      width: 180px;
+      height: 100px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .card-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card.has-thumbnail {
+      padding-right: 210px;
+    }
+
     .card-with-logo {
       display: flex;
       align-items: center;
@@ -416,8 +461,25 @@
     }
 
     .award-badge.silver {
-      color: #94a3b8;
-      background: rgba(148, 163, 184, 0.15);
+      color: #c0c7d1;
+      background: rgba(192, 199, 209, 0.2);
+    }
+
+    /* Project Name Label */
+    .project-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: lowercase;
+      opacity: 0.9;
+      margin-top: 10px;
+    }
+
+    .project-tagline {
+      font-weight: 400;
+      color: var(--text-muted);
+      opacity: 0.7;
     }
 
     .award-category {
@@ -428,7 +490,7 @@
       align-items: center;
       gap: 6px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
+      font-size: 0.93rem;
       color: var(--text);
       opacity: 0.7;
     }
@@ -589,7 +651,7 @@
     /* Side Timeline Navigation */
     .side-nav {
       position: fixed;
-      left: 80px;
+      left: 120px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 100;
@@ -685,7 +747,7 @@
     .side-nav-right {
       position: fixed;
       left: auto;
-      right: 80px;
+      right: 120px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 100;
@@ -921,7 +983,10 @@
           <div class="section-line"></div>
         </div>
 
-        <div class="card">
+        <div class="card has-thumbnail">
+          <div class="card-thumbnail">
+            <img src="images/guida-ai.jpg" alt="Guida AI">
+          </div>
           <div class="award-category">
             <span class="award-category-label">Hackathon</span>
             <span class="award-category-dot">•</span>
@@ -934,13 +999,18 @@
               <div class="card-subtitle">OpenAI, ElevenLabs, Snowflake</div>
             </div>
           </div>
+          <div class="project-name"><span class="project-tagline">built </span>guida<span class="project-tagline">, a
+              web agent to help seniors navigate</span></div>
           <div class="card-description">
-            Built Guida, an agent designed to help older adults navigate the web, learning from user behavior &
+            built guida, an agent designed to help older adults navigate the web, learning from user behavior &
             patterns.
           </div>
         </div>
 
-        <div class="card">
+        <div class="card has-thumbnail">
+          <div class="card-thumbnail">
+            <img src="images/jarvis.jpg" alt="Jarvis">
+          </div>
           <div class="award-category">
             <span class="award-category-label">Hackathon</span>
             <span class="award-category-dot">•</span>
@@ -953,13 +1023,18 @@
               <div class="card-subtitle">UC Berkeley • 3,300+ participants</div>
             </div>
           </div>
+          <div class="project-name"><span class="project-tagline">built </span>jarvis<span class="project-tagline">, a
+              voice agent for accessibility</span></div>
           <div class="card-description">
-            Built Jarvis, an accessibility-first voice agent for people with mobility impairments that can see the
+            built jarvis, an accessibility-first voice agent for people with mobility impairments that can see the
             screen, understand context, and execute multi-step actions.
           </div>
         </div>
 
-        <div class="card">
+        <div class="card has-thumbnail">
+          <div class="card-thumbnail">
+            <img src="images/doeve.jpg" alt="Doeve">
+          </div>
           <div class="award-category">
             <span class="award-category-label">Hackathon</span>
             <span class="award-category-dot">•</span>
@@ -972,9 +1047,18 @@
               <div class="card-subtitle">Princeton University • 600+ participants</div>
             </div>
           </div>
+          <div class="project-name"><span class="project-tagline">built </span>doeve<span class="project-tagline">, the
+              do-everything agent</span></div>
+          <div class="card-description">
+            text your laptop, get things done. an imessage agent that launches apps, moves files, runs scripts, and
+            automates tasks on command.
+          </div>
         </div>
 
-        <div class="card">
+        <div class="card has-thumbnail">
+          <div class="card-thumbnail">
+            <img src="images/nasa.png" alt="NASA Space Hacks">
+          </div>
           <div class="award-category">
             <span class="award-category-label">Hackathon</span>
             <span class="award-category-dot">•</span>
@@ -987,8 +1071,11 @@
               <div class="card-subtitle">NASA Ames • 422 participants</div>
             </div>
           </div>
+          <div class="project-name"><span class="project-tagline">built </span>resonant exoplanets<span
+              class="project-tagline">, ai-powered exoplanet discovery</span></div>
           <div class="card-description">
-            Built novel approach for extraplanetary planet discovery using NASA datasets.
+            first system integrating modulus prime algebra transformer with ai for transit detection and atmospheric
+            biosignature analysis. zero rounding errors, natural language interface, jwst spectroscopy support.
           </div>
         </div>
       </section>
