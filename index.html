@@ -429,17 +429,15 @@
     /* Mobile: Hide thumbnail and fix badge overlap */
     @media (max-width: 768px) {
       .card-thumbnail {
-        display: none;
+        display: none !important;
       }
 
       .card.has-thumbnail {
-        padding-right: 18px;
+        padding-right: 18px !important;
       }
 
       .award-category {
-        position: relative;
-        top: auto;
-        right: auto;
+        position: static !important;
         margin-bottom: 8px;
         font-size: 0.85rem;
       }
