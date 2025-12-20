@@ -426,6 +426,28 @@
       padding-right: 210px;
     }
 
+    /* Mobile: Hide thumbnail and fix badge overlap */
+    @media (max-width: 768px) {
+      .card-thumbnail {
+        display: none;
+      }
+
+      .card.has-thumbnail {
+        padding-right: 18px;
+      }
+
+      .award-category {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 10px;
+      }
+
+      .award-badge {
+        max-width: 100%;
+      }
+    }
+
     .card-with-logo {
       display: flex;
       align-items: center;
@@ -603,6 +625,14 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+        width: 100%;
+      }
+
+      .header-text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .header-text h1 {
@@ -979,7 +1009,7 @@
       <!-- Awards -->
       <section class="section" id="awards">
         <div class="section-header">
-          <span class="section-label">Awards</span>
+          <span class="section-label">Awards + Projects</span>
           <div class="section-line"></div>
         </div>
 
