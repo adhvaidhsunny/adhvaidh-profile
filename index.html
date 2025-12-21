@@ -318,6 +318,284 @@
       background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
     }
 
+    /* Project Group (subtle subsection) */
+    .project-group {
+      margin-bottom: 24px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .project-group-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-group-logo {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .project-group-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .project-group-cards .card {
+      margin-bottom: 0;
+      padding: 14px 16px;
+    }
+
+    .project-group-cards .card-title {
+      font-size: 0.95rem;
+    }
+
+    .project-group-cards .card-subtitle {
+      font-size: 0.8rem;
+    }
+
+    .project-group-cards .award-badge {
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .project-group-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* NASA Awards layout */
+    .nasa-awards {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    .nasa-award {
+      flex: 1;
+    }
+
+    .nasa-award .card-subtitle {
+      margin-top: 6px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      .nasa-awards {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    /* NASA Spotlight (sleek minimal design) */
+    .nasa-spotlight {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .nasa-spotlight-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .nasa-spotlight-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .nasa-spotlight-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .nasa-spotlight-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nasa-spotlight-awards {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nasa-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .nasa-pill.silver {
+      background: rgba(192, 199, 209, 0.15);
+      color: #a0aab8;
+    }
+
+    /* Award Spotlight (shared style) */
+    .award-spotlight,
+    .nasa-spotlight {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .award-spotlight:hover,
+    .nasa-spotlight:hover {
+      border-color: var(--accent);
+    }
+
+    .award-spotlight-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .award-type-date {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    .award-spotlight-meta {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .award-spotlight-project {
+      margin-top: 14px;
+      font-size: 1.2rem;
+      word-spacing: 2px;
+    }
+
+    .award-spotlight-header,
+    .nasa-spotlight-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .award-spotlight-logo,
+    .nasa-spotlight-logo {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .award-spotlight-title,
+    .nasa-spotlight-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0;
+    }
+
+    .award-spotlight-subtitle,
+    .nasa-spotlight-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .award-spotlight-badges,
+    .nasa-spotlight-awards {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .award-pill,
+    .nasa-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .award-pill.gold,
+    .nasa-pill.gold {
+      background: rgba(255, 193, 7, 0.15);
+      color: #ffc107;
+    }
+
+    .award-pill.silver,
+    .nasa-pill.silver {
+      background: rgba(192, 199, 209, 0.15);
+      color: #a0aab8;
+    }
+
+    .award-pill-meta {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .product-name {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      position: relative;
+      padding: 2px 4px;
+      margin: 0 -4px;
+      border-radius: 4px;
+      background: linear-gradient(120deg, rgba(91, 76, 255, 0.15) 0%, rgba(8, 145, 178, 0.15) 100%);
+      transition: all 0.3s ease;
+    }
+
+    .product-name:hover {
+      background: linear-gradient(120deg, rgba(91, 76, 255, 0.25) 0%, rgba(8, 145, 178, 0.25) 100%);
+    }
+
+    .product-name .arrow {
+      font-size: 0.85em;
+      margin-left: 3px;
+      opacity: 0.7;
+      transition: all 0.2s ease;
+    }
+
+    .product-name:hover .arrow {
+      opacity: 1;
+      transform: translate(2px, -2px);
+    }
+
+    .openai-logo {
+      background: #000;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
     /* Cards */
     .card {
       background: var(--surface);
@@ -356,7 +634,7 @@
 
     .card-date {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.93rem;
+      font-size: 1.05rem;
       color: var(--text);
       opacity: 0.7;
       white-space: nowrap;
@@ -1015,101 +1293,89 @@
           <div class="section-line"></div>
         </div>
 
-        <div class="card has-thumbnail">
-          <div class="card-thumbnail">
-            <img src="images/guida-ai.jpg" alt="Guida AI">
-          </div>
-          <div class="award-category">
-            <span class="award-category-label">Hackathon</span>
-            <span class="award-category-dot">•</span>
-            <span class="award-category-date">Oct 2025</span>
-          </div>
-          <div class="award-badge">🏆 1st Place</div>
-          <div class="card-row">
-            <div>
-              <div class="card-title">OpenAI Agents Hack SF — The Future of Agents</div>
-              <div class="card-subtitle">OpenAI, ElevenLabs, Snowflake</div>
+        <!-- NASA Space Apps -->
+        <a href="https://www.nasa.gov/learning-resources/stem-engagement-at-nasa/nasa-announces-2025-international-space-apps-challenge-global-winners/"
+          target="_blank" class="project-link">
+          <div class="award-spotlight">
+            <div class="award-spotlight-top">
+              <div class="award-pill gold">🏆 Global Winner</div>
+              <div class="award-pill silver">🥈 Regional 2nd</div>
+              <div class="award-type-date">HACKATHON • 2025</div>
+            </div>
+            <div class="award-spotlight-header">
+              <img src="images/nasa-logo.png" alt="NASA" class="award-spotlight-logo">
+              <div class="award-spotlight-info">
+                <div class="award-spotlight-title">NASA Space Apps 2025</div>
+                <div class="award-spotlight-meta">NASA • 18,800+ teams • 150+ countries</div>
+              </div>
+            </div>
+            <div class="award-spotlight-project">
+              <span class="project-tagline">built </span><span class="product-name">resonant exoplanets<span
+                  class="arrow">↗</span></span><span class="project-tagline"> — ai-powered exoplanet discovery</span>
             </div>
           </div>
-          <div class="project-name"><span class="project-tagline">built </span>guida<span class="project-tagline">, a
-              web agent to help seniors navigate</span></div>
-          <div class="card-description">
-            built guida, an agent designed to help older adults navigate the web, learning from user behavior &
-            patterns.
+        </a>
+
+        <!-- OpenAI Agents Hack -->
+        <div class="award-spotlight">
+          <div class="award-spotlight-top">
+            <div class="award-pill gold">🏆 1st Place</div>
+            <div class="award-type-date">HACKATHON • Oct 2025</div>
+          </div>
+          <div class="award-spotlight-header">
+            <img src="images/logo-openai.svg" alt="OpenAI" class="award-spotlight-logo openai-logo">
+            <div class="award-spotlight-info">
+              <div class="award-spotlight-title">OpenAI Agents Hack SF</div>
+              <div class="award-spotlight-meta">OpenAI, ElevenLabs, Snowflake</div>
+            </div>
+          </div>
+          <div class="award-spotlight-project">
+            <span class="project-tagline">built </span><a href="https://github.com/adhvaidhsunny/guida" target="_blank"
+              class="product-name">guida<span class="arrow">↗</span></a><span class="project-tagline"> — a web agent to
+              help seniors navigate</span>
           </div>
         </div>
 
-        <div class="card has-thumbnail">
-          <div class="card-thumbnail">
-            <img src="images/jarvis.jpg" alt="Jarvis">
+        <!-- UC Berkeley Cal Hacks -->
+        <div class="award-spotlight">
+          <div class="award-spotlight-top">
+            <div class="award-pill gold">🥇 1st Place — Best Use of ElevenLabs</div>
+            <div class="award-type-date">HACKATHON • Oct 2025</div>
           </div>
-          <div class="award-category">
-            <span class="award-category-label">Hackathon</span>
-            <span class="award-category-dot">•</span>
-            <span class="award-category-date">Oct 2025</span>
-          </div>
-          <div class="award-badge">🏆 1st Place — Best Use of ElevenLabs</div>
-          <div class="card-row">
-            <div>
-              <div class="card-title">UC Berkeley Cal Hacks</div>
-              <div class="card-subtitle">UC Berkeley • 3,300+ participants</div>
+          <div class="award-spotlight-header">
+            <img src="images/logo-berkeley.png" alt="UC Berkeley" class="award-spotlight-logo">
+            <div class="award-spotlight-info">
+              <div class="award-spotlight-title">UC Berkeley Cal Hacks</div>
+              <div class="award-spotlight-meta">UC Berkeley • 3,300+ participants</div>
             </div>
           </div>
-          <div class="project-name"><span class="project-tagline">built </span>jarvis<span class="project-tagline">, a
-              voice agent for accessibility</span></div>
-          <div class="card-description">
-            built jarvis, an accessibility-first voice agent for people with mobility impairments that can see the
-            screen, understand context, and execute multi-step actions.
+          <div class="award-spotlight-project">
+            <span class="project-tagline">built </span><a href="https://github.com/adhvaidhsunny/jarvis" target="_blank"
+              class="product-name">jarvis<span class="arrow">↗</span></a><span class="project-tagline"> — a voice agent
+              for accessibility</span>
           </div>
         </div>
 
-        <div class="card has-thumbnail">
-          <div class="card-thumbnail">
-            <img src="images/doeve.jpg" alt="Doeve">
+        <!-- HackPrinceton -->
+        <div class="award-spotlight">
+          <div class="award-spotlight-top">
+            <div class="award-pill gold">🥇 1st Place — Exploring Hybrid Intelligence</div>
+            <div class="award-type-date">HACKATHON • Nov 2025</div>
           </div>
-          <div class="award-category">
-            <span class="award-category-label">Hackathon</span>
-            <span class="award-category-dot">•</span>
-            <span class="award-category-date">Nov 2025</span>
-          </div>
-          <div class="award-badge">🏆 Winner — Exploring Hybrid Intelligence</div>
-          <div class="card-row">
-            <div>
-              <div class="card-title">HackPrinceton</div>
-              <div class="card-subtitle">Princeton University • 600+ participants</div>
+          <div class="award-spotlight-header">
+            <img src="images/logo-princeton.png" alt="Princeton" class="award-spotlight-logo">
+            <div class="award-spotlight-info">
+              <div class="award-spotlight-title">HackPrinceton</div>
+              <div class="award-spotlight-meta">Princeton University • 600+ participants</div>
             </div>
           </div>
-          <div class="project-name"><span class="project-tagline">built </span>doeve<span class="project-tagline">, the
-              do-everything agent</span></div>
-          <div class="card-description">
-            text your laptop, get things done. an imessage agent that launches apps, moves files, runs scripts, and
-            automates tasks on command.
+          <div class="award-spotlight-project">
+            <span class="project-tagline">built </span><a href="https://github.com/adhvaidhsunny/doeve" target="_blank"
+              class="product-name">doeve<span class="arrow">↗</span></a><span class="project-tagline"> — the
+              do-everything agent</span>
           </div>
         </div>
 
-        <div class="card has-thumbnail">
-          <div class="card-thumbnail">
-            <img src="images/nasa.png" alt="NASA Space Hacks">
-          </div>
-          <div class="award-category">
-            <span class="award-category-label">Hackathon</span>
-            <span class="award-category-dot">•</span>
-            <span class="award-category-date">2025</span>
-          </div>
-          <div class="award-badge silver">🥈 2nd Place</div>
-          <div class="card-row">
-            <div>
-              <div class="card-title">NASA Space Hacks 2025 Regional</div>
-              <div class="card-subtitle">NASA Ames • 422 participants</div>
-            </div>
-          </div>
-          <div class="project-name"><span class="project-tagline">built </span>resonant exoplanets<span
-              class="project-tagline">, ai-powered exoplanet discovery</span></div>
-          <div class="card-description">
-            first system integrating modulus prime algebra transformer with ai for transit detection and atmospheric
-            biosignature analysis. zero rounding errors, natural language interface, jwst spectroscopy support.
-          </div>
-        </div>
       </section>
 
       <!-- Projects -->
