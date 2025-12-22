@@ -463,10 +463,67 @@
       padding: 20px;
       margin-bottom: 12px;
       transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .award-spotlight-content {
+      padding-right: 250px;
+    }
+
+    .space-apps-bg .award-spotlight-content {
+      padding-right: 0;
+    }
+
+    .award-spotlight-thumb {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      width: 220px;
+      height: 145px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .award-spotlight-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 600px) {
+      .award-spotlight-content {
+        padding-right: 0;
+      }
+
+      .award-spotlight-thumb {
+        display: none;
+      }
     }
 
     .award-spotlight:hover,
-    .nasa-spotlight:hover {
+    .nasa-spotlight:hover,
+    .space-apps-bg:hover {
+      border-color: var(--accent);
+    }
+
+    .space-apps-bg {
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.84) 100%),
+        url('images/spaceappsbg.png');
+      background-size: cover;
+      background-position: right center;
+    }
+
+    [data-theme="dark"] .space-apps-bg {
+      background:
+        linear-gradient(135deg, rgba(20, 20, 30, 0.88) 0%, rgba(20, 20, 30, 0.84) 100%),
+        url('images/spaceappsbg.png');
+      background-size: cover;
+      background-position: right center;
+    }
+
+    .space-apps-bg:hover {
       border-color: var(--accent);
     }
 
@@ -478,10 +535,12 @@
     }
 
     .award-type-date {
-      font-size: 1rem;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.1rem;
       font-weight: 500;
       color: var(--text-muted);
-      margin-left: auto;
     }
 
     .award-spotlight-meta {
@@ -770,7 +829,7 @@
     /* Project Name Label */
     .project-name {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 500;
       color: var(--accent);
       text-transform: lowercase;
@@ -1017,7 +1076,7 @@
 
     .side-nav-label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -1296,83 +1355,100 @@
         <!-- NASA Space Apps -->
         <a href="https://www.nasa.gov/learning-resources/stem-engagement-at-nasa/nasa-announces-2025-international-space-apps-challenge-global-winners/"
           target="_blank" class="project-link">
-          <div class="award-spotlight">
-            <div class="award-spotlight-top">
-              <div class="award-pill gold">🏆 Global Winner</div>
-              <div class="award-pill silver">🥈 Regional 2nd</div>
-              <div class="award-type-date">HACKATHON • 2025</div>
-            </div>
-            <div class="award-spotlight-header">
-              <img src="images/nasa-logo.png" alt="NASA" class="award-spotlight-logo">
-              <div class="award-spotlight-info">
-                <div class="award-spotlight-title">NASA Space Apps 2025</div>
-                <div class="award-spotlight-meta">NASA • 18,800+ teams • 150+ countries</div>
+          <div class="award-spotlight space-apps-bg">
+            <div class="award-spotlight-content">
+              <div class="award-spotlight-top">
+                <div class="award-pill gold">🥇 Global Winner</div>
+                <div class="award-pill silver">🥈 Regional 2nd</div>
+                <div class="award-type-date">HACKATHON • 2025</div>
               </div>
-            </div>
-            <div class="award-spotlight-project">
-              <span class="project-tagline">built </span><span class="product-name">resonant exoplanets<span
-                  class="arrow">↗</span></span><span class="project-tagline"> — ai-powered exoplanet discovery</span>
+              <div class="award-spotlight-header">
+                <img src="images/nasa-logo.png" alt="NASA" class="award-spotlight-logo">
+                <div class="award-spotlight-info">
+                  <div class="award-spotlight-title">NASA Space Apps 2025</div>
+                  <div class="award-spotlight-meta">NASA • 18,800+ teams • 150+ countries</div>
+                </div>
+              </div>
+              <div class="award-spotlight-project">
+                <span class="project-tagline">built </span><span class="product-name">resonant exoplanets<span
+                    class="arrow">↗</span></span><span class="project-tagline"> — ai-powered exoplanet discovery</span>
+              </div>
             </div>
           </div>
         </a>
 
         <!-- OpenAI Agents Hack -->
         <div class="award-spotlight">
-          <div class="award-spotlight-top">
-            <div class="award-pill gold">🏆 1st Place</div>
-            <div class="award-type-date">HACKATHON • Oct 2025</div>
-          </div>
-          <div class="award-spotlight-header">
-            <img src="images/logo-openai.svg" alt="OpenAI" class="award-spotlight-logo openai-logo">
-            <div class="award-spotlight-info">
-              <div class="award-spotlight-title">OpenAI Agents Hack SF</div>
-              <div class="award-spotlight-meta">OpenAI, ElevenLabs, Snowflake</div>
+          <div class="award-spotlight-content">
+            <div class="award-spotlight-top">
+              <div class="award-pill gold">🥇 1st Place</div>
+              <div class="award-type-date">HACKATHON • Oct 2025</div>
+            </div>
+            <div class="award-spotlight-header">
+              <img src="images/logo-openai.svg" alt="OpenAI" class="award-spotlight-logo openai-logo">
+              <div class="award-spotlight-info">
+                <div class="award-spotlight-title">OpenAI Agents Hack SF</div>
+                <div class="award-spotlight-meta">OpenAI, ElevenLabs, Snowflake</div>
+              </div>
+            </div>
+            <div class="award-spotlight-project">
+              <span class="project-tagline">built </span><a href="https://github.com/adhvaidhsunny/guida"
+                target="_blank" class="product-name">guida<span class="arrow">↗</span></a><span class="project-tagline">
+                — a web agent to help seniors navigate</span>
             </div>
           </div>
-          <div class="award-spotlight-project">
-            <span class="project-tagline">built </span><a href="https://github.com/adhvaidhsunny/guida" target="_blank"
-              class="product-name">guida<span class="arrow">↗</span></a><span class="project-tagline"> — a web agent to
-              help seniors navigate</span>
+          <div class="award-spotlight-thumb">
+            <img src="images/guida-ai.jpg" alt="Guida AI">
           </div>
         </div>
 
         <!-- UC Berkeley Cal Hacks -->
         <div class="award-spotlight">
-          <div class="award-spotlight-top">
-            <div class="award-pill gold">🥇 1st Place — Best Use of ElevenLabs</div>
-            <div class="award-type-date">HACKATHON • Oct 2025</div>
-          </div>
-          <div class="award-spotlight-header">
-            <img src="images/logo-berkeley.png" alt="UC Berkeley" class="award-spotlight-logo">
-            <div class="award-spotlight-info">
-              <div class="award-spotlight-title">UC Berkeley Cal Hacks</div>
-              <div class="award-spotlight-meta">UC Berkeley • 3,300+ participants</div>
+          <div class="award-spotlight-content">
+            <div class="award-spotlight-top">
+              <div class="award-pill gold">🥇 1st Place — Best Use of ElevenLabs</div>
+              <div class="award-type-date">HACKATHON • Oct 2025</div>
+            </div>
+            <div class="award-spotlight-header">
+              <img src="images/logo-berkeley.png" alt="UC Berkeley" class="award-spotlight-logo">
+              <div class="award-spotlight-info">
+                <div class="award-spotlight-title">UC Berkeley Cal Hacks</div>
+                <div class="award-spotlight-meta">UC Berkeley • 3,300+ participants</div>
+              </div>
+            </div>
+            <div class="award-spotlight-project">
+              <span class="project-tagline">built </span><a href="https://github.com/adhvaidhsunny/jarvis"
+                target="_blank" class="product-name">jarvis<span class="arrow">↗</span></a><span
+                class="project-tagline"> — a voice agent for accessibility and navigation</span>
             </div>
           </div>
-          <div class="award-spotlight-project">
-            <span class="project-tagline">built </span><a href="https://github.com/adhvaidhsunny/jarvis" target="_blank"
-              class="product-name">jarvis<span class="arrow">↗</span></a><span class="project-tagline"> — a voice agent
-              for accessibility</span>
+          <div class="award-spotlight-thumb">
+            <img src="images/jarvis.jpg" alt="Jarvis">
           </div>
         </div>
 
         <!-- HackPrinceton -->
         <div class="award-spotlight">
-          <div class="award-spotlight-top">
-            <div class="award-pill gold">🥇 1st Place — Exploring Hybrid Intelligence</div>
-            <div class="award-type-date">HACKATHON • Nov 2025</div>
-          </div>
-          <div class="award-spotlight-header">
-            <img src="images/logo-princeton.png" alt="Princeton" class="award-spotlight-logo">
-            <div class="award-spotlight-info">
-              <div class="award-spotlight-title">HackPrinceton</div>
-              <div class="award-spotlight-meta">Princeton University • 600+ participants</div>
+          <div class="award-spotlight-content">
+            <div class="award-spotlight-top">
+              <div class="award-pill gold">🥇 1st Place — Exploring Hybrid Intelligence</div>
+              <div class="award-type-date">HACKATHON • Nov 2025</div>
+            </div>
+            <div class="award-spotlight-header">
+              <img src="images/logo-princeton.png" alt="Princeton" class="award-spotlight-logo">
+              <div class="award-spotlight-info">
+                <div class="award-spotlight-title">HackPrinceton</div>
+                <div class="award-spotlight-meta">Princeton University • 600+ participants</div>
+              </div>
+            </div>
+            <div class="award-spotlight-project">
+              <span class="project-tagline">built </span><a href="https://github.com/adhvaidhsunny/doeve"
+                target="_blank" class="product-name">doeve<span class="arrow">↗</span></a><span class="project-tagline">
+                — the do-everything agent for any task</span>
             </div>
           </div>
-          <div class="award-spotlight-project">
-            <span class="project-tagline">built </span><a href="https://github.com/adhvaidhsunny/doeve" target="_blank"
-              class="product-name">doeve<span class="arrow">↗</span></a><span class="project-tagline"> — the
-              do-everything agent</span>
+          <div class="award-spotlight-thumb">
+            <img src="images/doeve.jpg" alt="Doeve">
           </div>
         </div>
 
