@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Resonant Exoplanets – Global 1st Place (Best Use of Data) at NASA Space Apps 2025. AI-powered exoplanet discovery using orbital resonance patterns. Built by Adhvaidh Sunny.">
+    <meta name="author" content="Adhvaidh Sunny">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://adhvaidh.qzz.io/blog/resonant-exoplanets.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://adhvaidh.qzz.io/blog/resonant-exoplanets.html">
+    <meta property="og:title" content="Resonant Exoplanets – NASA Space Apps Global Winner | Adhvaidh Sunny">
+    <meta property="og:description"
+        content="Global 1st Place at NASA Space Apps 2025. AI-powered exoplanet discovery using orbital resonance patterns.">
+    <meta property="og:image" content="https://adhvaidh.qzz.io/images/spaceappsbg.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Resonant Exoplanets – NASA Space Apps Global Winner | Adhvaidh Sunny">
+    <meta name="twitter:description"
+        content="Global 1st Place at NASA Space Apps 2025. AI-powered exoplanet discovery.">
+    <meta name="twitter:image" content="https://adhvaidh.qzz.io/images/spaceappsbg.png">
+    <meta name="twitter:creator" content="@adhvaidhsunny">
+
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+    <title>Resonant Exoplanets – NASA Space Apps 2025 | Adhvaidh Sunny</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8fafb;
+            --surface: #ffffff;
+            --text: #0a1628;
+            --text-muted: #64748b;
+            --accent: #0891b2;
+            --accent-soft: #e0f7fa;
+            --border: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0a0a0f;
+            --surface: #12141a;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent: #00d4ff;
+            --accent-soft: #0c2d3d;
+            --border: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .blog-header {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .blog-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-header-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 60px 40px 40px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+        }
+
+        .blog-back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 10px 16px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .blog-back:hover {
+            background: rgba(0, 0, 0, 0.6);
+            transform: translateX(-4px);
+        }
+
+        .blog-title {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .blog-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+
+        .blog-badge.silver {
+            background: rgba(192, 199, 209, 0.2);
+            color: #a0aab8;
+        }
+
+        .blog-date {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        .blog-section {
+            margin-bottom: 40px;
+        }
+
+        .blog-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        .blog-section p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .blog-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .blog-section li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        .blog-section li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .tech-tag {
+            padding: 8px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .blog-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            margin-right: 12px;
+        }
+
+        .blog-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(8, 145, 178, 0.3);
+        }
+
+        .blog-cta.secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .blog-cta.secondary:hover {
+            border-color: var(--accent);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.6);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            .blog-header {
+                height: 300px;
+            }
+
+            .blog-title {
+                font-size: 1.8rem;
+            }
+
+            .blog-content {
+                padding: 40px 20px 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+
+    <header class="blog-header">
+        <img src="../images/spaceappsbg.png" alt="NASA Space Apps">
+        <a href="../index.html#awards" class="blog-back">← Back to Portfolio</a>
+        <div class="blog-header-overlay">
+            <h1 class="blog-title">Resonant Exoplanets</h1>
+            <div class="blog-meta">
+                <span class="blog-badge">🥇 Global Winner</span>
+                <span class="blog-badge silver">🥈 Regional 2nd</span>
+                <span class="blog-date">NASA Space Apps 2025</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog-content">
+        <section class="blog-section">
+            <h2>The Challenge</h2>
+            <p>NASA Space Apps Challenge 2025 brought together over 18,800 teams from 150+ countries to solve real
+                challenges facing NASA scientists. Our team tackled the challenge of discovering exoplanets by analyzing
+                patterns in celestial data.</p>
+        </section>
+
+        <section class="blog-section">
+            <h2>Our Solution</h2>
+            <p>Resonant Exoplanets uses AI to analyze orbital resonance patterns — the gravitational dance between
+                planets in a system. By identifying these harmonic relationships in NASA's telescope data, we can detect
+                previously hidden exoplanets and predict where undiscovered planets might exist.</p>
+            <ul>
+                <li>AI-powered analysis of orbital resonance patterns</li>
+                <li>Integration with NASA's Kepler and TESS data</li>
+                <li>Predictive modeling for undiscovered exoplanets</li>
+                <li>Interactive 3D visualization of planetary systems</li>
+                <li>Real-time data processing pipeline</li>
+            </ul>
+        </section>
+
+        <section class="blog-section">
+            <h2>Tech Stack</h2>
+            <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">NumPy</span>
+                <span class="tech-tag">Three.js</span>
+                <span class="tech-tag">NASA APIs</span>
+                <span class="tech-tag">FastAPI</span>
+            </div>
+        </section>
+
+        <section class="blog-section">
+            <h2>The Result</h2>
+            <p>We were recognized as a Global Winner out of 18,800+ teams worldwide and placed 2nd in our regional
+                competition. NASA scientists praised our innovative approach to exoplanet discovery and the potential
+                real-world applications of our resonance analysis method.</p>
+            <a href="https://www.nasa.gov/learning-resources/stem-engagement-at-nasa/nasa-announces-2025-international-space-apps-challenge-global-winners/"
+                target="_blank" class="blog-cta">
+                NASA Announcement ↗
+            </a>
+            <a href="https://github.com/spaceapps2025" target="_blank" class="blog-cta secondary">
+                View Project ↗
+            </a>
+        </section>
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.setAttribute('data-theme', 'dark');
+        } else {
+            html.setAttribute('data-theme', 'light');
+        }
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+
+</html>

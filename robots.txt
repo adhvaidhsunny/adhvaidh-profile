@@ -1,0 +1,8 @@
+# Robots.txt for adhvaidh.qzz.io
+# https://adhvaidh.qzz.io/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://adhvaidh.qzz.io/sitemap.xml
