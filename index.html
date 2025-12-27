@@ -1233,13 +1233,6 @@
       margin: -10px -16px;
     }
 
-    /* Hide on mobile */
-    @media (max-width: 1100px) {
-      .side-nav {
-        display: none;
-      }
-    }
-
     /* Right Side Navigation */
     .side-nav-right {
       position: fixed;
@@ -1270,9 +1263,62 @@
       /* No background here - it's on the label now */
     }
 
-    @media (max-width: 1100px) {
+    /* Hide nav on mobile */
+    @media (max-width: 768px) {
+      .side-nav {
+        display: none !important;
+      }
+
       .side-nav-right {
+        display: none !important;
+      }
+    }
+
+    /* Horizontal top-center nav for medium screens */
+    @media (max-width: 1340px) and (min-width: 769px) {
+      .side-nav:not(.side-nav-right) {
+        position: fixed;
+        left: 50%;
+        right: auto;
+        top: 20px;
+        transform: translateX(-50%);
+        flex-direction: row;
+        gap: 8px;
+        background: var(--surface);
+        padding: 8px 16px;
+        border-radius: 50px;
+        border: 1px solid var(--border);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .side-nav:not(.side-nav-right) .side-nav-item {
+        padding: 8px 12px;
+        gap: 8px;
+        border-radius: 50px;
+      }
+
+      .side-nav:not(.side-nav-right) .side-nav-indicator {
         display: none;
+      }
+
+      .side-nav:not(.side-nav-right) .side-nav-label {
+        font-size: 0.85rem;
+      }
+
+      .side-nav:not(.side-nav-right) .side-nav-item:hover .side-nav-label,
+      .side-nav:not(.side-nav-right) .side-nav-item.active .side-nav-label {
+        margin: 0;
+        padding: 0;
+      }
+
+      .side-nav-right {
+        display: none !important;
+      }
+
+      /* Move theme toggle to avoid overlap */
+      .theme-toggle {
+        top: 20px;
+        right: 24px;
       }
     }
   </style>
