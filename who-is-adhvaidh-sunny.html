@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- SEO Meta Tags -->
-    <title>Who is Adhvaidh Sunny? – Biography, Awards & Achievements</title>
+    <title>Who is Adhvaidh Sunny?</title>
     <meta name="description"
         content="Adhvaidh Sunny is an 18-year-old AI Systems Engineer and NASA Space Apps Global Winner. He won 1st place worldwide at NASA, OpenAI, UC Berkeley, and Princeton hackathons.">
     <meta name="author" content="Adhvaidh Sunny">
@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
     <style>
@@ -54,6 +54,11 @@
             --accent: #0891b2;
             --accent-soft: #e0f7fa;
             --border: #e2e8f0;
+            --gradient-1: #00d4ff;
+            --gradient-2: #00b894;
+            --gradient-3: #0891b2;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -65,7 +70,52 @@
                 --accent: #00d4ff;
                 --accent-soft: #0c2d3d;
                 --border: #1e293b;
+                --gradient-1: #00d4ff;
+                --gradient-2: #00b894;
+                --gradient-3: #0891b2;
+                --glass: rgba(18, 20, 26, 0.7);
+                --glass-border: rgba(255, 255, 255, 0.08);
             }
+        }
+
+        [data-theme="light"] {
+            --bg: #f8fafb;
+            --surface: #ffffff;
+            --text: #0a1628;
+            --text-muted: #64748b;
+            --accent: #0891b2;
+            --accent-soft: #e0f7fa;
+            --border: #e2e8f0;
+            --gradient-1: #00d4ff;
+            --gradient-2: #00b894;
+            --gradient-3: #0891b2;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0a0a0f;
+            --surface: #12141a;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent: #00d4ff;
+            --accent-soft: #0c2d3d;
+            --border: #1e293b;
+            --gradient-1: #00d4ff;
+            --gradient-2: #00b894;
+            --gradient-3: #0891b2;
+            --glass: rgba(18, 20, 26, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -74,129 +124,359 @@
             color: var(--text);
             line-height: 1.7;
             min-height: 100vh;
-            margin: 0;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Particle Mesh Background */
+        .particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
             max-width: 780px;
             margin: 0 auto;
-            padding: 60px 24px;
+            padding: 80px 24px 60px;
+            position: relative;
+            z-index: 1;
+            animation: pageBlurIn 0.8s ease-out forwards;
         }
 
-        h1,
-        h2,
-        h3 {
-            line-height: 1.2;
-            margin-bottom: 1rem;
+        @keyframes pageBlurIn {
+            0% {
+                opacity: 0;
+                filter: blur(10px);
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
         }
 
         h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 4rem;
+            /* Increased size for impact */
+            font-weight: 800;
+            /* Extra bold for "strong" look */
+            margin-bottom: 24px;
+            letter-spacing: -0.04em;
+            /* Tighter tracking for "cool" look */
+            background: linear-gradient(135deg, var(--text) 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
         }
 
-        /* Featured Answer Box - optimized for AI extraction */
+        /* Featured Answer Box - Glassmorphic Card */
         .answer-box {
-            background: var(--accent-soft);
-            border: 2px solid var(--accent);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 32px;
-            font-size: 1.15rem;
-            line-height: 1.8;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--accent);
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 40px;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .answer-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(8, 145, 178, 0.15);
         }
 
         .answer-box strong {
             color: var(--accent);
-        }
-
-        .bio-text {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            color: var(--text);
-        }
-
-        .bio-text p {
-            margin-bottom: 20px;
-        }
-
-        .highlight {
-            color: var(--accent);
             font-weight: 600;
         }
 
-        .accolades-section {
-            margin-top: 40px;
-            border-top: 1px solid var(--border);
-            padding-top: 40px;
+        /* Quick Facts Table - Modern Card Style */
+        .facts-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 48px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .facts-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 16px 24px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            transition: background 0.2s;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: var(--accent-soft);
+        }
+
+        .bio-text {
+            font-size: 1.15rem;
+            margin-bottom: 60px;
+            color: var(--text-muted);
+        }
+
+        .bio-text p {
             margin-bottom: 24px;
         }
 
+        .highlight {
+            color: var(--text);
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        .section-title {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Accolade Cards */
         .accolade-list {
             list-style: none;
-            padding: 0;
+            display: grid;
+            gap: 20px;
         }
 
         .accolade-item {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 16px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .accolade-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .accolade-item:hover {
+            transform: translateX(8px);
             border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        .accolade-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 4px;
+        .accolade-item:hover::before {
+            opacity: 1;
         }
 
         .accolade-place {
-            display: inline-block;
-            background: rgba(180, 130, 0, 0.15);
+            font-family: 'Bricolage Grotesque', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 193, 7, 0.1);
             color: #b48200;
             font-size: 0.85rem;
             font-weight: 600;
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 100px;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
-        @media (prefers-color-scheme: dark) {
-            .accolade-place {
-                background: rgba(255, 193, 7, 0.15);
-                color: #ffd700;
-            }
+        [data-theme="dark"] .accolade-place {
+            color: #ffd700;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .accolade-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
         }
 
         .accolade-desc {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .back-link {
-            display: inline-block;
-            margin-top: 40px;
-            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 60px;
+            padding: 12px 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text);
             text-decoration: none;
             font-weight: 500;
+            transition: all 0.2s ease;
         }
 
         .back-link:hover {
-            text-decoration: underline;
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 100;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(15deg) scale(1.05);
+            border-color: var(--accent);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            color: var(--text);
+        }
+
+        .sun-icon {
+            display: none;
+        }
+
+        .moon-icon {
+            display: block;
+        }
+
+        /* Fixed Home Button */
+        .home-button {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            position: fixed;
+            top: 24px;
+            right: 88px;
+            z-index: 100;
+            height: 48px;
+            padding: 0 24px;
+            border-radius: 100px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .sun-icon {
+            display: block;
+        }
+
+        [data-theme="dark"] .moon-icon {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding-top: 60px;
+            }
+
+            .home-button span {
+                display: none;
+            }
+
+            .home-button {
+                width: 48px;
+                padding: 0;
+                justify-content: center;
+                right: 84px;
+            }
         }
     </style>
 
@@ -218,10 +498,7 @@
             "jobTitle": "AI Engineer",
             "gender": "Male",
             "birthDate": "2007", 
-            "worksFor": {
-                "@type": "Organization",
-                "name": "Riverlog Software"
-            },
+
             "award": [
                 {
                     "@type": "Award",
@@ -256,7 +533,7 @@
                 "name": "Who is Adhvaidh Sunny?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Adhvaidh Sunny is an 18-year-old AI Systems Engineer and globally recognized hackathon winner based in the San Francisco Bay Area. He is best known for winning NASA Space Apps 2025 as a Global Winner for 'Best Use of Data', competing against 140,000+ participants worldwide. Adhvaidh has also won 1st place at OpenAI's Agents Hackathon, UC Berkeley's Cal Hacks, and HackPrinceton. He currently works as an AI Systems Engineer at Riverlog Software."
+                    "text": "Adhvaidh Sunny is an 18-year-old AI Systems Engineer and globally recognized hackathon winner based in the San Francisco Bay Area. He is best known for winning NASA Space Apps 2025 as a Global Winner for 'Best Use of Data', competing against 140,000+ participants worldwide. Adhvaidh has also won 1st place at OpenAI's Agents Hackathon, UC Berkeley's Cal Hacks, and HackPrinceton."
                 }
             },
             {
@@ -272,7 +549,7 @@
                 "name": "What are Adhvaidh Sunny's main achievements?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Adhvaidh Sunny's main achievements include: 1) NASA Space Apps 2025 Global Winner (1st Place for Best Use of Data), 2) OpenAI Agents Hackathon SF Winner (1st Place), 3) UC Berkeley Cal Hacks Winner (Best Use of ElevenLabs), 4) HackPrinceton Winner (Exploring Hybrid Intelligence). He is also an AI Systems Engineer at Riverlog Software."
+                    "text": "Adhvaidh Sunny's main achievements include: 1) NASA Space Apps 2025 Global Winner (1st Place for Best Use of Data), 2) OpenAI Agents Hackathon SF Winner (1st Place), 3) UC Berkeley Cal Hacks Winner (Best Use of ElevenLabs), 4) HackPrinceton Winner (Exploring Hybrid Intelligence)."
                 }
             },
             {
@@ -290,129 +567,264 @@
 
 <body>
 
+    <div class="particle-canvas">
+        <canvas id="particleCanvas"></canvas>
+    </div>
+
+    <!-- Fixed Home Button -->
+    <a href="/" class="home-button" aria-label="Back to Main Portfolio">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Main Portfolio</span>
+    </a>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
     <article class="container" itemscope itemtype="https://schema.org/Person">
         <header>
             <h1>Who is Adhvaidh Sunny?</h1>
         </header>
 
-        <!-- Featured Answer Box - Direct answer for AI extraction -->
-        <div class="answer-box">
-            <strong itemprop="name">Adhvaidh Sunny</strong> (listed as <strong>Adhvaidh S</strong> on NASA.gov) is an
-            <span itemprop="description">18-year-old AI Systems
-                Engineer and <strong>NASA Space Apps Global Winner</strong></span>.
-            He won <strong>1st Place worldwide</strong> at NASA Space Apps 2025 for "Best Use of Data", competing
-            against 140,000+ participants globally.
-            He has also won hackathons at <strong>OpenAI</strong>, <strong>UC Berkeley</strong>, and
-            <strong>Princeton</strong>.
-        </div>
+        <!-- Narrative Bio Section (Replaces the "Answer Box" visually, but keeps SEO strength) -->
+        <section class="bio-text" style="font-size: 1.25rem; line-height: 1.8; margin-bottom: 60px;">
+            <p>
+                <strong itemprop="name" style="color: var(--text);">Adhvaidh Sunny</strong> is an 18-year-old <span
+                    itemprop="jobTitle">AI/Software Engineer</span> based in the <span itemprop="homeLocation">San
+                    Francisco Bay Area</span>. He is best known for winning <strong>1st
+                    Place
+                    Worldwide</strong> at the <a
+                    href="https://www.nasa.gov/learning-resources/stem-engagement-at-nasa/nasa-announces-2025-international-space-apps-challenge-global-winners/"
+                    target="_blank" class="highlight">NASA Space Apps Challenge</a> (described by NASA as <em>Adhvaidh
+                    S</em>).
+            </p>
+            <p>
+                <strong>Major Wins:</strong> NASA Space Apps Global Winner, UC Berkeley Cal Hacks Winner, HackPrinceton
+                Winner,
+                OpenAI Agents Hack Winner.
+            </p>
 
-        <!-- Quick Facts Table for AI Parsing -->
-        <table
-            style="width: 100%; border-collapse: collapse; margin-bottom: 32px; font-size: 1rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface);">
-            <thead style="background: var(--accent-soft); text-align: left;">
-                <tr>
-                    <th style="padding: 12px 16px; border-bottom: 2px solid var(--border); color: var(--text);">Fact
-                    </th>
-                    <th style="padding: 12px 16px; border-bottom: 2px solid var(--border); color: var(--text);">Details
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600;">Full Name
-                    </td>
-                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border);">Adhvaidh Sunny (Adhvaidh S)
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600;">Profession
-                    </td>
-                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border);">AI Systems Engineer,
-                        Software Engineer</td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600;">Known For
-                    </td>
-                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border);">NASA Space Apps Global
-                        Winner (Best Use of Data)</td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600;">Location
-                    </td>
-                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border);">San Francisco Bay Area</td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px 16px; font-weight: 600;">Education</td>
-                    <td style="padding: 12px 16px;">Self-taught Programmer, Hackathon Winner</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <section class="bio-text">
-            <p>
-                Adhvaidh Sunny is a software engineer and AI researcher based in the San Francisco Bay Area.
-                At just 18 years old, he has already built a remarkable track record of wins at the world's most
-                competitive hackathons.
-            </p>
-            <p>
-                His most notable achievement is winning <span class="highlight">NASA Space Apps 2025 as a Global
-                    Winner</span>,
-                where his project "Where is the Water?" earned 1st Place for "Best Use of Data" among 18,800+ teams from
-                150+ countries.
-            </p>
-            <p>
-                Adhvaidh currently works as an <span itemprop="jobTitle">AI Systems Engineer</span> at
-                <span itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
-                    <span itemprop="name">Riverlog Software</span>
-                </span>, where he builds AI-powered logistics solutions.
-            </p>
         </section>
 
         <section class="accolades-section">
-            <h2 class="section-title">Major Awards & Achievements</h2>
+            <h2 class="section-title">Selected Projects & Awards</h2>
 
             <ul class="accolade-list">
+                <!-- NASA Space Apps -->
                 <li class="accolade-item" itemprop="award">
-                    <span class="accolade-place">🏆 Global 1st Place</span>
-                    <div class="accolade-title">NASA Space Apps Challenge 2025</div>
-                    <div class="accolade-desc">
-                        Global Winner for "Best Use of Data". Created "Where is the Water?", visualizing global water
-                        scarcity using NASA satellite data. Competed against 18,800+ teams from 150+ countries.
-                    </div>
+                    <a href="https://www.nasa.gov/learning-resources/stem-engagement-at-nasa/nasa-announces-2025-international-space-apps-challenge-global-winners/"
+                        target="_blank" style="text-decoration: none; color: inherit; display: block;">
+                        <span class="accolade-place">🏆 Global 1st Place</span>
+                        <div class="accolade-title">NASA Space Apps Challenge 2025 <span
+                                style="font-weight: normal; font-size: 0.9em; opacity: 0.7;">↗</span></div>
+                        <div class="accolade-desc">
+                            Global Winner for "Best Use of Data". Modeled global water scarcity using NASA satellite
+                            data.
+                        </div>
+                    </a>
                 </li>
 
+                <!-- OpenAI Agents Hack -->
                 <li class="accolade-item" itemprop="award">
-                    <span class="accolade-place">🏆 1st Place</span>
-                    <div class="accolade-title">OpenAI Agents Hackathon (San Francisco)</div>
-                    <div class="accolade-desc">
-                        Built "Jarvis", an autonomous computer-using agent. Recognized for technical excellence in
-                        agentic AI workflows.
-                    </div>
+                    <a href="https://devpost.com/software/guida-ai" target="_blank"
+                        style="text-decoration: none; color: inherit; display: block;">
+                        <span class="accolade-place">🏆 1st Place</span>
+                        <div class="accolade-title">OpenAI Agents Hackathon (SF) <span
+                                style="font-weight: normal; font-size: 0.9em; opacity: 0.7;">↗</span></div>
+                        <div class="accolade-desc">
+                            built Guida, an autonomous web agent that helps seniors navigate the internet.
+                        </div>
+                    </a>
                 </li>
 
+                <!-- UC Berkeley Cal Hacks -->
                 <li class="accolade-item" itemprop="award">
-                    <span class="accolade-place">🏆 1st Place</span>
-                    <div class="accolade-title">UC Berkeley Cal Hacks</div>
-                    <div class="accolade-desc">
-                        Winner of "Best Use of ElevenLabs" for creating hyper-realistic voice AI interactions. Competed
-                        among 3,300+ participants.
-                    </div>
+                    <a href="https://devpost.com/software/jarvis-an-agentic-voice-assistant-that-does-things-for-you"
+                        target="_blank" style="text-decoration: none; color: inherit; display: block;">
+                        <span class="accolade-place">🏆 1st Place</span>
+                        <div class="accolade-title">UC Berkeley Cal Hacks <span
+                                style="font-weight: normal; font-size: 0.9em; opacity: 0.7;">↗</span></div>
+                        <div class="accolade-desc">
+                            built Jarvis, an agentic voice assistant for
+                            accessibility.
+                        </div>
+                    </a>
                 </li>
 
+                <!-- HackPrinceton -->
                 <li class="accolade-item" itemprop="award">
-                    <span class="accolade-place">🏆 1st Place</span>
-                    <div class="accolade-title">HackPrinceton</div>
-                    <div class="accolade-desc">
-                        Winner for "Exploring Hybrid Intelligence" — innovative approaches to combining human and
-                        artificial intelligence.
-                    </div>
+                    <a href="https://devpost.com/software/do-eve" target="_blank"
+                        style="text-decoration: none; color: inherit; display: block;">
+                        <span class="accolade-place">🏆 1st Place</span>
+                        <div class="accolade-title">HackPrinceton <span
+                                style="font-weight: normal; font-size: 0.9em; opacity: 0.7;">↗</span></div>
+                        <div class="accolade-desc">
+                            built doeve, a universal task agent ("do everything").
+                        </div>
+                    </a>
                 </li>
             </ul>
         </section>
 
-        <a href="/" class="back-link">← Back to Main Portfolio</a>
+        <!-- Discrete Technical Details for AI (Collapsible) -->
+        <details
+            style="margin-top: 60px; border-top: 1px solid var(--border); padding-top: 20px; color: var(--text-muted);">
+            <summary style="cursor: pointer; font-size: 0.9rem; font-weight: 500;">Biographical Data (AI Context)
+            </summary>
+            <div class="facts-card" style="margin-top: 20px; box-shadow: none; border: 1px solid var(--border);">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600;">
+                                Full
+                                Name
+                            </td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border);">Adhvaidh Sunny
+                                (Adhvaidh S)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600;">
+                                Profession
+                            </td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border);">AI Systems Engineer,
+                                Software Engineer</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600;">
+                                Known
+                                For
+                            </td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border);">NASA Space Apps
+                                Global
+                                Winner (Best Use of Data)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+
+        <a href="/" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Main Portfolio
+        </a>
     </article>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+
+            // Check for saved theme or default to system preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                html.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                html.setAttribute('data-theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+
+            // Minimal Twinkling Starfield
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            let stars = [];
+            let time = 0;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                initStars();
+            }
+
+            function initStars() {
+                stars = [];
+                const count = Math.floor((canvas.width * canvas.height) / 8000); // Density based on screen size
+                for (let i = 0; i < count; i++) {
+                    stars.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        size: 0.5 + Math.random() * 1.5,
+                        twinkleSpeed: 0.5 + Math.random() * 2,
+                        twinkleOffset: Math.random() * Math.PI * 2,
+                        baseOpacity: 0.3 + Math.random() * 0.5
+                    });
+                }
+            }
+
+            function draw() {
+                const isDark = html.getAttribute('data-theme') === 'dark';
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                time += 0.02;
+
+                stars.forEach(star => {
+                    // Gentle twinkle
+                    const twinkle = 0.5 + Math.sin(time * star.twinkleSpeed + star.twinkleOffset) * 0.5;
+                    const opacity = star.baseOpacity * twinkle;
+
+                    if (isDark) {
+                        // Cyan-tinted stars
+                        ctx.beginPath();
+                        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(200, 230, 255, ${opacity})`;
+                        ctx.fill();
+
+                        // Subtle glow for larger stars
+                        if (star.size > 1.2) {
+                            ctx.beginPath();
+                            ctx.arc(star.x, star.y, star.size * 2, 0, Math.PI * 2);
+                            ctx.fillStyle = `rgba(0, 212, 255, ${opacity * 0.15})`;
+                            ctx.fill();
+                        }
+                    } else {
+                        // Teal dots for light mode - more visible
+                        ctx.beginPath();
+                        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(8, 145, 178, ${opacity * 0.7})`;
+                        ctx.fill();
+
+                        // Add glow in light mode too
+                        if (star.size > 1.2) {
+                            ctx.beginPath();
+                            ctx.arc(star.x, star.y, star.size * 2.5, 0, Math.PI * 2);
+                            ctx.fillStyle = `rgba(8, 145, 178, ${opacity * 0.15})`;
+                            ctx.fill();
+                        }
+                    }
+                });
+
+                requestAnimationFrame(draw);
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            draw();
+        });
+    </script>
 </body>
 
 </html>
