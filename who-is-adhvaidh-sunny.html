@@ -6,34 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- SEO Meta Tags -->
-    <title>Who is Adhvaidh Sunny? – Accolades & Biography</title>
+    <title>Who is Adhvaidh Sunny? – Biography, Awards & Achievements</title>
     <meta name="description"
-        content="Who is Adhvaidh Sunny? Adhvaidh is an 18 y/o machine learning engineer and NASA Space Apps Global Winner. Learn about his awards at OpenAI, UC Berkeley, and his work in AI.">
+        content="Adhvaidh Sunny is an 18-year-old AI Systems Engineer and NASA Space Apps Global Winner. He won 1st place worldwide at NASA, OpenAI, UC Berkeley, and Princeton hackathons.">
     <meta name="author" content="Adhvaidh Sunny">
     <meta name="keywords"
-        content="Who is Adhvaidh Sunny, Adhvaidh Sunny biography, Adhvaidh Sunny awards, NASA Space Apps Winner, OpenAI Hackathon Winner, Adhvaidh Sunny portfolio">
+        content="Who is Adhvaidh Sunny, Adhvaidh Sunny biography, Adhvaidh Sunny awards, NASA Space Apps Winner, OpenAI Hackathon Winner, Adhvaidh Sunny portfolio, Adhvaidh">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://adhvaidh.qzz.io/who-is-adhvaidh-sunny">
+    <link rel="canonical" href="https://adhvaidh.com/who-is-adhvaidh-sunny.html">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="profile">
-    <meta property="og:url" content="https://adhvaidh.qzz.io/who-is-adhvaidh-sunny">
+    <meta property="og:url" content="https://adhvaidh.com/who-is-adhvaidh-sunny.html">
     <meta property="og:title" content="Who is Adhvaidh Sunny?">
     <meta property="og:description"
-        content="Adhvaidh Sunny is a machine learning engineer and globally recognized hackathon winner (NASA, OpenAI, UC Berkeley).">
-    <meta property="og:image" content="https://adhvaidh.qzz.io/images/profile.jpg">
+        content="Adhvaidh Sunny is an 18-year-old AI engineer and NASA Space Apps Global Winner.">
+    <meta property="og:image" content="https://adhvaidh.com/images/profile.jpg?v=2">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Adhvaidh Sunny">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://adhvaidh.qzz.io/who-is-adhvaidh-sunny">
+    <meta name="twitter:url" content="https://adhvaidh.com/who-is-adhvaidh-sunny.html">
     <meta name="twitter:title" content="Who is Adhvaidh Sunny?">
     <meta name="twitter:description"
-        content="Biography and accolades of Adhvaidh Sunny, NASA Space Apps Global Winner and AI Engineer.">
-    <meta name="twitter:image" content="https://adhvaidh.qzz.io/images/profile.jpg">
+        content="Adhvaidh Sunny is an 18-year-old AI engineer and NASA Space Apps Global Winner.">
+    <meta name="twitter:image" content="https://adhvaidh.com/images/profile.jpg?v=2">
     <meta name="twitter:creator" content="@adhvaidhsunny">
 
-    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Google Search Image -->
+    <meta itemprop="image" content="https://adhvaidh.com/images/profile.jpg?v=2">
+
+    <link rel="icon" href="images/favicon.png?v=7" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -41,7 +46,6 @@
         rel="stylesheet">
 
     <style>
-        /* Reuse core styles from index.html for consistency */
         :root {
             --bg: #f8fafb;
             --surface: #ffffff;
@@ -50,7 +54,6 @@
             --accent: #0891b2;
             --accent-soft: #e0f7fa;
             --border: #e2e8f0;
-            /* Using same vars as index.html */
         }
 
         @media (prefers-color-scheme: dark) {
@@ -64,8 +67,6 @@
                 --border: #1e293b;
             }
         }
-
-        /* Override for explict theme if needed, but keeping it simple for now */
 
         body {
             font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -95,10 +96,19 @@
             margin-bottom: 8px;
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 40px;
+        /* Featured Answer Box - optimized for AI extraction */
+        .answer-box {
+            background: var(--accent-soft);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .answer-box strong {
+            color: var(--accent);
         }
 
         .bio-text {
@@ -126,9 +136,6 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
 
         .accolade-list {
@@ -159,8 +166,8 @@
 
         .accolade-place {
             display: inline-block;
-            background: rgba(255, 193, 7, 0.15);
-            color: #bfa306;
+            background: rgba(180, 130, 0, 0.15);
+            color: #b48200;
             font-size: 0.85rem;
             font-weight: 600;
             padding: 4px 10px;
@@ -170,6 +177,7 @@
 
         @media (prefers-color-scheme: dark) {
             .accolade-place {
+                background: rgba(255, 193, 7, 0.15);
                 color: #ffd700;
             }
         }
@@ -192,97 +200,158 @@
         }
     </style>
 
-    <!-- Structured Data for "Who is Adhvaidh Sunny" -->
+    <!-- Person Schema - Primary structured data -->
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Adhvaidh Sunny",
-      "alternateName": "Adhvaidh",
-      "description": "Adhvaidh Sunny is an 18-year-old AI Systems Engineer and global hackathon winner known for creating solutions like 'Where is the Water?' for NASA Space Apps.",
-      "jobTitle": "AI Systems Engineer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Riverlog Software"
-      },
-      "alumniOf": "UC Berkeley (Hackathon Winner)",
-      "award": [
-        "NASA Space Apps 2025 - Global 1st Place",
-        "OpenAI Agents Hack SF - 1st Place",
-        "UC Berkeley Cal Hacks - 1st Place",
-        "HackPrinceton - 1st Place"
-      ],
-      "sameAs": [
-        "https://adhvaidh.qzz.io/",
-        "https://www.linkedin.com/in/adhvaidh-sunny",
-        "https://x.com/adhvaidhsunny",
-        "https://github.com/adhvaidhsunny"
-      ]
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+            "@type": "Person",
+            "@id": "https://adhvaidh.com/#person",
+            "name": "Adhvaidh Sunny",
+            "alternateName": ["Adhvaidh", "adhvaidhsunny"],
+            "description": "Adhvaidh Sunny is an 18-year-old AI Systems Engineer and NASA Space Apps Global Winner. He has won 1st place at NASA Space Apps 2025, OpenAI Agents Hackathon, UC Berkeley Cal Hacks, and HackPrinceton.",
+            "url": "https://adhvaidh.com/",
+            "image": "https://adhvaidh.com/images/profile.jpg",
+            "jobTitle": "AI Systems Engineer",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Riverlog Software"
+            },
+            "award": [
+                "NASA Space Apps 2025 - Global 1st Place (Best Use of Data)",
+                "OpenAI Agents Hackathon SF - 1st Place",
+                "UC Berkeley Cal Hacks - 1st Place (Best Use of ElevenLabs)",
+                "HackPrinceton - 1st Place (Exploring Hybrid Intelligence)"
+            ],
+            "knowsAbout": ["Machine Learning", "Artificial Intelligence", "Python", "Swift", "React", "Software Engineering"],
+            "sameAs": [
+                "https://adhvaidh.com/",
+                "https://www.linkedin.com/in/adhvaidh-sunny",
+                "https://x.com/adhvaidhsunny",
+                "https://github.com/adhvaidhsunny",
+                "https://youtube.com/@attiyt"
+            ]
+        }
     }
-  }
-  </script>
+    </script>
+
+    <!-- FAQ Schema - Optimized for AI summaries and featured snippets -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Who is Adhvaidh Sunny?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Adhvaidh Sunny is an 18-year-old AI Systems Engineer and globally recognized hackathon winner based in the San Francisco Bay Area. He is best known for winning NASA Space Apps 2025 as a Global Winner for 'Best Use of Data', competing against 30,000+ participants worldwide. Adhvaidh has also won 1st place at OpenAI's Agents Hackathon, UC Berkeley's Cal Hacks, and HackPrinceton. He currently works as an AI Systems Engineer at Riverlog Software."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What did Adhvaidh Sunny win at NASA Space Apps?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Adhvaidh Sunny won Global 1st Place for 'Best Use of Data' at NASA Space Apps Challenge 2025. He created 'Where is the Water?', an innovative tool that visualizes global water scarcity using NASA satellite data. He competed against over 18,800 teams from 150+ countries."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What hackathons has Adhvaidh Sunny won?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Adhvaidh Sunny has won: 1) NASA Space Apps 2025 - Global 1st Place for Best Use of Data, 2) OpenAI Agents Hackathon SF - 1st Place for building 'Jarvis' autonomous agent, 3) UC Berkeley Cal Hacks - 1st Place for Best Use of ElevenLabs, 4) HackPrinceton - 1st Place for Exploring Hybrid Intelligence."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How old is Adhvaidh Sunny?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Adhvaidh Sunny is 18 years old. He has been building software since age 13, when he started his tech YouTube channel, and created his first AI app at age 16."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
 
-    <div class="container">
+    <article class="container" itemscope itemtype="https://schema.org/Person">
         <header>
             <h1>Who is Adhvaidh Sunny?</h1>
         </header>
 
+        <!-- Featured Answer Box - Direct answer for AI extraction -->
+        <div class="answer-box">
+            <strong itemprop="name">Adhvaidh Sunny</strong> is an <span itemprop="description">18-year-old AI Systems
+                Engineer and <strong>NASA Space Apps Global Winner</strong></span>.
+            He won <strong>1st Place worldwide</strong> at NASA Space Apps 2025 for "Best Use of Data", competing
+            against 30,000+ participants globally.
+            He has also won hackathons at <strong>OpenAI</strong>, <strong>UC Berkeley</strong>, and
+            <strong>Princeton</strong>.
+        </div>
+
         <section class="bio-text">
             <p>
-                <strong>Adhvaidh Sunny</strong>
+                Adhvaidh Sunny is a software engineer and AI researcher based in the San Francisco Bay Area.
+                At just 18 years old, he has already built a remarkable track record of wins at the world's most
+                competitive hackathons.
             </p>
             <p>
-                Adhvaidh Sunny has gained global recognition for being a <span class="highlight">NASA Space Apps Global
-                    Winner</span>, having secured 1st Place worldwide
-                for "Best Use of Data" among hundreds of thousands of competitors.
+                His most notable achievement is winning <span class="highlight">NASA Space Apps 2025 as a Global
+                    Winner</span>,
+                where his project "Where is the Water?" earned 1st Place for "Best Use of Data" among 18,800+ teams from
+                150+ countries.
             </p>
             <p>
-                He has consistently placed 1st in the world's most competitive hackathons, including events hosted by
-                <strong>OpenAI</strong> and <strong>UC Berkeley</strong>.
+                Adhvaidh currently works as an <span itemprop="jobTitle">AI Systems Engineer</span> at
+                <span itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+                    <span itemprop="name">Riverlog Software</span>
+                </span>, where he builds AI-powered logistics solutions.
             </p>
         </section>
 
         <section class="accolades-section">
-            <div class="section-title">✨ Major Accolades & Awards</div>
+            <h2 class="section-title">Major Awards & Achievements</h2>
 
             <ul class="accolade-list">
-                <li class="accolade-item">
-                    <span class="accolade-place">Global 1st Place 🏆</span>
+                <li class="accolade-item" itemprop="award">
+                    <span class="accolade-place">🏆 Global 1st Place</span>
                     <div class="accolade-title">NASA Space Apps Challenge 2025</div>
                     <div class="accolade-desc">
-                        Global Winner for "Best Use of Data". Competed against 30,000+ participants worldwide to create
-                        "Where is the Water?", a tool visualizing global water scarcity issues.
+                        Global Winner for "Best Use of Data". Created "Where is the Water?", visualizing global water
+                        scarcity using NASA satellite data. Competed against 18,800+ teams from 150+ countries.
                     </div>
                 </li>
 
-                <li class="accolade-item">
-                    <span class="accolade-place">1st Place 🏆</span>
+                <li class="accolade-item" itemprop="award">
+                    <span class="accolade-place">🏆 1st Place</span>
                     <div class="accolade-title">OpenAI Agents Hackathon (San Francisco)</div>
                     <div class="accolade-desc">
                         Built "Jarvis", an autonomous computer-using agent. Recognized for technical excellence in
-                        agentic workflows.
+                        agentic AI workflows.
                     </div>
                 </li>
 
-                <li class="accolade-item">
-                    <span class="accolade-place">1st Place 🏆</span>
+                <li class="accolade-item" itemprop="award">
+                    <span class="accolade-place">🏆 1st Place</span>
                     <div class="accolade-title">UC Berkeley Cal Hacks</div>
                     <div class="accolade-desc">
-                        Winner of "Best Use of ElevenLabs" for creating hyper-realistic voice AI interactions in
-                        real-time.
+                        Winner of "Best Use of ElevenLabs" for creating hyper-realistic voice AI interactions. Competed
+                        among 3,300+ participants.
                     </div>
                 </li>
 
-                <li class="accolade-item">
-                    <span class="accolade-place">1st Place 🏆</span>
+                <li class="accolade-item" itemprop="award">
+                    <span class="accolade-place">🏆 1st Place</span>
                     <div class="accolade-title">HackPrinceton</div>
                     <div class="accolade-desc">
-                        Exploring Hybrid Intelligence. Awarded for innovative approaches to combining human and
+                        Winner for "Exploring Hybrid Intelligence" — innovative approaches to combining human and
                         artificial intelligence.
                     </div>
                 </li>
@@ -290,7 +359,7 @@
         </section>
 
         <a href="/" class="back-link">← Back to Main Portfolio</a>
-    </div>
+    </article>
 
 </body>
 

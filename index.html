@@ -117,7 +117,7 @@
   }
   </script>
 
-  <link rel="icon" href="images/favicon.png?v=5" type="image/png">
+  <link rel="icon" href="images/favicon.png?v=7" type="image/png">
   <title>Adhvaidh Sunny – Machine Learning & Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -901,6 +901,12 @@
     }
 
     .card:hover .card-description {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 12px;
+    }
+
+    .card-description.always-visible {
       max-height: 500px;
       opacity: 1;
       margin-top: 12px;
@@ -1713,26 +1719,6 @@
           </div>
         </a>
 
-        <a href="https://github.com/adhvaidhsunny/srjc-pathways" target="_blank" rel="noopener noreferrer"
-          class="project-link">
-          <div class="card">
-            <div class="award-badge">🥉 3rd Place</div>
-            <div class="card-row">
-              <div>
-                <div class="card-title">
-                  SRJC Pathway Explorer
-                  <span class="external-icon">↗</span>
-                </div>
-              </div>
-              <span class="card-date">Aug 2025</span>
-            </div>
-            <div class="card-description">
-              AI-powered guidance system to help students at Santa Rosa Junior College find their best academic and
-              career direction.
-            </div>
-          </div>
-        </a>
-
         <div class="card">
           <div class="card-row">
             <div>
@@ -1740,7 +1726,7 @@
             </div>
             <span class="card-date">2023</span>
           </div>
-          <div class="card-description">
+          <div class="card-description always-visible">
             SwiftUI mobile app to help create custom meal plans and recommend restaurants using AI, created at 16 years
             old.
           </div>
