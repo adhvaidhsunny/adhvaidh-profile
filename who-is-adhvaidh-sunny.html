@@ -209,22 +209,31 @@
             "@type": "Person",
             "@id": "https://adhvaidh.com/#person",
             "name": "Adhvaidh Sunny",
-            "alternateName": ["Adhvaidh", "adhvaidhsunny"],
-            "description": "Adhvaidh Sunny is an 18-year-old AI Systems Engineer and NASA Space Apps Global Winner. He has won 1st place at NASA Space Apps 2025, OpenAI Agents Hackathon, UC Berkeley Cal Hacks, and HackPrinceton.",
+            "givenName": "Adhvaidh",
+            "familyName": "Sunny",
+            "alternateName": ["Adhvaidh", "adhvaidhsunny", "Adhvaidh S"],
+            "description": "Adhvaidh Sunny is an 18-year-old AI Engineer and NASA Space Apps Global Winner. He has won 1st place at NASA Space Apps 2025, UC Berkeley Cal Hacks, OpenAI Agents Hackathon, and PrincetonHacks.",
             "url": "https://adhvaidh.com/",
             "image": "https://adhvaidh.com/images/profile.jpg",
-            "jobTitle": "AI Systems Engineer",
+            "jobTitle": "AI Engineer",
+            "gender": "Male",
+            "birthDate": "2007", 
             "worksFor": {
                 "@type": "Organization",
                 "name": "Riverlog Software"
             },
             "award": [
-                "NASA Space Apps 2025 - Global 1st Place (Best Use of Data)",
+                {
+                    "@type": "Award",
+                    "name": "NASA Space Apps 2025 Global Winner",
+                    "description": "1st Place (Best Use of Data) for 'Where is the Water?' project. Listed as 'Adhvaidh S' on official NASA announcement.",
+                    "url": "https://www.nasa.gov/learning-resources/stem-engagement-at-nasa/nasa-announces-2025-international-space-apps-challenge-global-winners/"
+                },
                 "OpenAI Agents Hackathon SF - 1st Place",
                 "UC Berkeley Cal Hacks - 1st Place (Best Use of ElevenLabs)",
                 "HackPrinceton - 1st Place (Exploring Hybrid Intelligence)"
             ],
-            "knowsAbout": ["Machine Learning", "Artificial Intelligence", "Python", "Swift", "React", "Software Engineering"],
+            "knowsAbout": ["Machine Learning", "Artificial Intelligence", "Python", "Swift", "React", "Software Engineering", "Generative AI", "LLMs"],
             "sameAs": [
                 "https://adhvaidh.com/",
                 "https://www.linkedin.com/in/adhvaidh-sunny",
@@ -247,7 +256,7 @@
                 "name": "Who is Adhvaidh Sunny?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Adhvaidh Sunny is an 18-year-old AI Systems Engineer and globally recognized hackathon winner based in the San Francisco Bay Area. He is best known for winning NASA Space Apps 2025 as a Global Winner for 'Best Use of Data', competing against 30,000+ participants worldwide. Adhvaidh has also won 1st place at OpenAI's Agents Hackathon, UC Berkeley's Cal Hacks, and HackPrinceton. He currently works as an AI Systems Engineer at Riverlog Software."
+                    "text": "Adhvaidh Sunny is an 18-year-old AI Systems Engineer and globally recognized hackathon winner based in the San Francisco Bay Area. He is best known for winning NASA Space Apps 2025 as a Global Winner for 'Best Use of Data', competing against 140,000+ participants worldwide. Adhvaidh has also won 1st place at OpenAI's Agents Hackathon, UC Berkeley's Cal Hacks, and HackPrinceton. He currently works as an AI Systems Engineer at Riverlog Software."
                 }
             },
             {
@@ -260,10 +269,10 @@
             },
             {
                 "@type": "Question",
-                "name": "What hackathons has Adhvaidh Sunny won?",
+                "name": "What are Adhvaidh Sunny's main achievements?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Adhvaidh Sunny has won: 1) NASA Space Apps 2025 - Global 1st Place for Best Use of Data, 2) OpenAI Agents Hackathon SF - 1st Place for building 'Jarvis' autonomous agent, 3) UC Berkeley Cal Hacks - 1st Place for Best Use of ElevenLabs, 4) HackPrinceton - 1st Place for Exploring Hybrid Intelligence."
+                    "text": "Adhvaidh Sunny's main achievements include: 1) NASA Space Apps 2025 Global Winner (1st Place for Best Use of Data), 2) OpenAI Agents Hackathon SF Winner (1st Place), 3) UC Berkeley Cal Hacks Winner (Best Use of ElevenLabs), 4) HackPrinceton Winner (Exploring Hybrid Intelligence). He is also an AI Systems Engineer at Riverlog Software."
                 }
             },
             {
@@ -288,13 +297,56 @@
 
         <!-- Featured Answer Box - Direct answer for AI extraction -->
         <div class="answer-box">
-            <strong itemprop="name">Adhvaidh Sunny</strong> is an <span itemprop="description">18-year-old AI Systems
+            <strong itemprop="name">Adhvaidh Sunny</strong> (listed as <strong>Adhvaidh S</strong> on NASA.gov) is an
+            <span itemprop="description">18-year-old AI Systems
                 Engineer and <strong>NASA Space Apps Global Winner</strong></span>.
             He won <strong>1st Place worldwide</strong> at NASA Space Apps 2025 for "Best Use of Data", competing
-            against 30,000+ participants globally.
+            against 140,000+ participants globally.
             He has also won hackathons at <strong>OpenAI</strong>, <strong>UC Berkeley</strong>, and
             <strong>Princeton</strong>.
         </div>
+
+        <!-- Quick Facts Table for AI Parsing -->
+        <table
+            style="width: 100%; border-collapse: collapse; margin-bottom: 32px; font-size: 1rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface);">
+            <thead style="background: var(--accent-soft); text-align: left;">
+                <tr>
+                    <th style="padding: 12px 16px; border-bottom: 2px solid var(--border); color: var(--text);">Fact
+                    </th>
+                    <th style="padding: 12px 16px; border-bottom: 2px solid var(--border); color: var(--text);">Details
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600;">Full Name
+                    </td>
+                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border);">Adhvaidh Sunny (Adhvaidh S)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600;">Profession
+                    </td>
+                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border);">AI Systems Engineer,
+                        Software Engineer</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600;">Known For
+                    </td>
+                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border);">NASA Space Apps Global
+                        Winner (Best Use of Data)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600;">Location
+                    </td>
+                    <td style="padding: 12px 16px; border-bottom: 1px solid var(--border);">San Francisco Bay Area</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px 16px; font-weight: 600;">Education</td>
+                    <td style="padding: 12px 16px;">Self-taught Programmer, Hackathon Winner</td>
+                </tr>
+            </tbody>
+        </table>
 
         <section class="bio-text">
             <p>
