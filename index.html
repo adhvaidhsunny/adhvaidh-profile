@@ -262,6 +262,32 @@
       box-shadow: 0 8px 30px rgba(91, 76, 255, 0.2);
     }
 
+    .bio-link {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 4px 12px;
+      border: 1px solid var(--accent);
+      border-radius: 100px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .bio-link:hover {
+      background: var(--accent);
+      color: var(--surface);
+      transform: translateY(-2px);
+    }
+
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
     .header-text h1 {
       font-size: 3rem;
       font-weight: 700;
@@ -1461,7 +1487,10 @@
     </button>
     <header class="header">
       <div class="header-content">
-        <img src="images/profile.jpg?v=2" alt="Adhvaidh Sunny" class="profile-pic">
+        <div class="profile-section">
+          <img src="images/profile.jpg?v=2" alt="Adhvaidh Sunny" class="profile-pic">
+          <a href="who-is-adhvaidh-sunny.html" class="bio-link">About Me</a>
+        </div>
         <div class="header-text">
           <h1><span class="letter" style="animation-delay: 0.0s">A</span><span class="letter"
               style="animation-delay: 0.03s">d</span><span class="letter" style="animation-delay: 0.06s">h</span><span
@@ -1478,14 +1507,6 @@
       </div>
 
       <nav class="links">
-        <a href="who-is-adhvaidh-sunny.html" class="link-item">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-            stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-          Who is Adhvaidh?
-        </a>
         <a href="mailto:adhvaidhsunny1@gmail.com" class="link-item">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
             stroke-width="2">
