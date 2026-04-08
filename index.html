@@ -366,7 +366,7 @@
       }
     }
 
-    /* Desktop Side Navbar Styles */
+    /* Side Navbar */
     .side-navbar {
       position: fixed;
       top: 50%;
@@ -388,11 +388,10 @@
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      transition: all 0.25s ease;
       padding: 10px 20px 10px 16px;
       border-radius: 999px;
-      position: relative;
       background: transparent;
+      transition: color 0.25s, background 0.25s;
     }
 
     .side-nav-item::before {
@@ -401,48 +400,20 @@
       height: 10px;
       border-radius: 50%;
       background: #cbd5e1;
-      transition: all 0.25s ease;
       flex-shrink: 0;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
     }
 
-    [data-theme="dark"] .side-nav-item::before {
-      background: #475569;
-    }
+    [data-theme="dark"] .side-nav-item::before { background: #475569; }
 
-    /* Hover State */
-    .side-nav-item:hover {
-      color: var(--text);
-    }
+    .side-nav-item:hover { color: var(--text); }
+    .side-nav-item:hover::before { background: #94a3b8; transform: scale(1.15); }
+    [data-theme="dark"] .side-nav-item:hover::before { background: #94a3b8; }
 
-    .side-nav-item:hover::before {
-      background: #94a3b8;
-      transform: scale(1.15);
-    }
-
-    [data-theme="dark"] .side-nav-item:hover::before {
-      background: #94a3b8;
-    }
-
-    /* Active State */
-    .side-nav-item.active {
-      color: #0e7490;
-      background: rgba(14, 116, 144, 0.08);
-    }
-
-    .side-nav-item.active::before {
-      background: #0891b2;
-      box-shadow: 0 0 8px rgba(8, 145, 178, 0.4);
-    }
-
-    [data-theme="dark"] .side-nav-item.active {
-      color: #22d3ee;
-      background: rgba(34, 211, 238, 0.08);
-    }
-
-    [data-theme="dark"] .side-nav-item.active::before {
-      background: #22d3ee;
-      box-shadow: 0 0 8px rgba(34, 211, 238, 0.3);
-    }
+    .side-nav-item.active { color: #0e7490; background: rgba(14, 116, 144, 0.08); }
+    .side-nav-item.active::before { background: #0891b2; box-shadow: 0 0 8px rgba(8, 145, 178, 0.4); }
+    [data-theme="dark"] .side-nav-item.active { color: #22d3ee; background: rgba(34, 211, 238, 0.08); }
+    [data-theme="dark"] .side-nav-item.active::before { background: #22d3ee; box-shadow: 0 0 8px rgba(34, 211, 238, 0.3); }
 
     /* Hide standard nav links on desktop, keep toggle */
     @media (min-width: 901px) {
@@ -786,6 +757,12 @@
       /* Visual center against Name + Pill group */
     }
 
+    /* NASA logo has a lot of negative space — bump it up slightly */
+    .project-logo[src*="nasa-logo"] {
+      width: 42px;
+      height: 42px;
+    }
+
     .project-content {
       flex: 1;
       /* Take remaining space */
@@ -996,8 +973,8 @@
       </div>
     </div>
     <div class="tagline">
-      building <span class="pill pill-cyan">machine learning systems</span> & <span class="pill pill-blue">ai
-        agents</span>
+      building <span class="pill pill-cyan">software</span> / <span class="pill pill-blue">ai
+        solutions</span>
     </div>
     <div class="ancient-text">
       <span class="el">Δόξα τῷ Χριστῷ τῷ Θεῷ ἡμῶν</span>
@@ -1009,30 +986,30 @@
       <summary>my timeline</summary>
       <div class="story">
         <div class="story-item">
-          <span class="year">2019 • 12 YO</span>
+          <span class="year">2019 • 11/12 YO</span>
           <p>started my youtube channel</p>
         </div>
         <div class="story-item">
-          <span class="year">2020 • 13 YO</span>
+          <span class="year">2020 • 12/13 YO</span>
           <p>started coding</p>
         </div>
         <div class="story-item">
-          <span class="year">2022 • 15 YO</span>
+          <span class="year">2022 • 14/15 YO</span>
           <p>started working in ai/ml with <a href="#work"><span class="pill pill-cyan">concha labs</span></a>
           </p>
         </div>
 
         <div class="story-item">
-          <span class="year">2023 • 16 YO</span>
+          <span class="year">2023 • 15/16 YO</span>
           <p>worked as a founding ai engineer for <a href="#work"><span class="pill pill-blue">the possible
                 company</span></a> (backed by a16z)</p>
         </div>
         <div class="story-item">
-          <span class="year">2024 • 17 YO</span>
+          <span class="year">2024 • 16/17 YO</span>
           <p>worked in ai/ml with <a href="#work"><span class="pill pill-yellow">metrum ai</span></a></p>
         </div>
         <div class="story-item">
-          <span class="year">2025 • 18 YO</span>
+          <span class="year">2025 • 17/18 YO</span>
           <div class="achievements">
             <p>working as an ai engineer at <a href="#work"><span class="pill pill-blue">riverlog
                   software</span></a></p>
@@ -1043,12 +1020,34 @@
             <p>won 1st place at <a href="#award-princeton"><span class="pill pill-pink">hackprinceton</span></a></p>
           </div>
         </div>
+        <div class="story-item">
+          <span class="year">2026 • 18 YO</span>
+          <p>software engineer intern at <a href="#work-nasa"><span class="pill pill-orange">nasa</span></a></p>
+        </div>
       </div>
     </details>
 
 
     <div id="work" class="section-title">WORK</div>
     <div class="project-list">
+      <div id="work-nasa" class="project-item">
+        <img src="images/nasa-logo.png" alt="NASA" class="project-logo">
+        <div class="project-content">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <div style="display: flex; flex-direction: column; gap: 0px;">
+              <a href="https://www.nasa.gov" target="_blank" class="project-name">NASA <span
+                  class="arrow">→</span></a>
+              <div>
+                <span class="pill pill-orange" style="font-size: 0.8rem; padding: 2px 10px;">SOFTWARE
+                  ENGINEERING INTERN</span>
+              </div>
+            </div>
+            <span class="project-date" style="margin-left: 0;">June 2026 - August 2026</span>
+          </div>
+          <div class="project-desc">Incoming intern working on software & AI systems engineering.</div>
+        </div>
+      </div>
+
       <div class="project-item">
         <img src="images/logo-riverlog.png" alt="Riverlog" class="project-logo">
         <div class="project-content">
@@ -1222,24 +1221,69 @@
       icon.innerHTML = next === 'dark' ? moonIcon : sunIcon;
     };
 
-    // Side Nav: Click + Scroll-based active tracking
-    const navItems = document.querySelectorAll('.side-nav-item[href^="#"]');
-    const allNavItems = document.querySelectorAll('.side-nav-item');
-    let scrollLocked = false;
-    let scrollTimer = null;
+    // Side Nav — scroll spy + click navigation
+    (function () {
+      const navItems = document.querySelectorAll('.side-nav-item');
+      const sectionIds = ['main-top', 'work', 'awards'];
+      let clickTarget = null;
 
-    // Click handler
-    navItems.forEach(item => {
-      item.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        const target = document.querySelector(href);
-        if (target) {
+      function setActive(id) {
+        navItems.forEach(item => {
+          item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+        });
+      }
+
+      function detectSection() {
+        const vh = window.innerHeight;
+        const maxScroll = document.documentElement.scrollHeight - vh;
+        // Near bottom of page → last section
+        if (maxScroll > 0 && window.scrollY >= maxScroll - 100) {
+          return sectionIds[sectionIds.length - 1];
+        }
+        // A section becomes active once its top crosses a fixed line near
+        // the top of the viewport. Using a fixed pixel offset (rather than a
+        // fraction of vh) prevents tall viewports from activating 'work'
+        // while the hero is still fully in view at scrollY = 0.
+        // #main-top is the outer container that wraps everything, so we skip
+        // it in the loop and rely on it as the default.
+        const line = 120;
+        let active = sectionIds[0];
+        for (let i = 1; i < sectionIds.length; i++) {
+          const el = document.getElementById(sectionIds[i]);
+          if (el && el.getBoundingClientRect().top < line) active = sectionIds[i];
+        }
+        return active;
+      }
+
+      // Scroll spy (rAF-throttled)
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          ticking = false;
+          const detected = detectSection();
+          // After a nav click, hold the clicked section active until
+          // scroll detection agrees — prevents any flash to a wrong section
+          if (clickTarget) {
+            if (detected === clickTarget) clickTarget = null;
+            return;
+          }
+          setActive(detected);
+        });
+      });
+
+      // Click navigation
+      navItems.forEach(item => {
+        item.addEventListener('click', function (e) {
           e.preventDefault();
-          scrollLocked = true;
-          allNavItems.forEach(n => n.classList.remove('active'));
-          this.classList.add('active');
+          const href = this.getAttribute('href');
+          const target = document.querySelector(href);
+          if (!target) return;
 
-          // For Main, scroll to very top
+          clickTarget = href.slice(1);
+          setActive(clickTarget);
+
           if (href === '#main-top') {
             window.scrollTo({ top: 0, behavior: 'smooth' });
             history.replaceState(null, '', '/');
@@ -1248,42 +1292,11 @@
             history.replaceState(null, '', '/' + href);
           }
 
-          // Wait until scroll settles to unlock
-          const unlockOnSettle = () => {
-            clearTimeout(scrollTimer);
-            scrollTimer = setTimeout(() => {
-              scrollLocked = false;
-              window.removeEventListener('scroll', unlockOnSettle);
-            }, 300);
-          };
-          window.addEventListener('scroll', unlockOnSettle);
-          // Safety fallback
-          setTimeout(() => { scrollLocked = false; }, 2000);
-        }
+          // Safety: clear after 3s if detection never agrees
+          setTimeout(() => { clickTarget = null; }, 3000);
+        });
       });
-    });
-
-    // Scroll-based active detection
-    window.addEventListener('scroll', () => {
-      if (scrollLocked) return;
-      const scrollY = window.scrollY + 200;
-      let currentSection = 'main-top';
-
-      for (const id of ['work', 'awards']) {
-        const el = document.getElementById(id);
-        if (el && el.offsetTop <= scrollY) {
-          currentSection = id;
-        }
-      }
-
-      allNavItems.forEach(item => {
-        item.classList.remove('active');
-        const href = item.getAttribute('href');
-        if (href === '#' + currentSection) {
-          item.classList.add('active');
-        }
-      });
-    });
+    })();
 
   </script>
 </body>
