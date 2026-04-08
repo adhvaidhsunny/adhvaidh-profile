@@ -14,10 +14,12 @@
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="xMLpJ_sfy9oZf5qXtms__j_JGe8MnsJp_y-nhr4h7-U">
   <link rel="canonical" href="https://adhvaidh.com/">
-  <link rel="preload" as="image" href="images/profile.jpg?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Set theme before body renders to avoid flash of light theme -->
+  <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';</script>
 
 
   <!-- Open Graph / Facebook -->
@@ -144,14 +146,7 @@
       --bg: #0a0a0a;
       --text: #f5f5f5;
       --muted: #888;
-      /* Keep vibrant pastels in dark mode for pop */
-      --pill-yellow: #fde047;
-      --pill-blue: #93c5fd;
-      --pill-pink: #f9a8d4;
-      --pill-green: #86efac;
-      --pill-purple: #d8b4fe;
-      --pill-orange: #fdba74;
-      --pill-cyan: #67e8f9;
+      /* Pills inherit from :root — pastels work in both themes */
     }
 
     * {
@@ -170,7 +165,7 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      padding: 32px 32px;
+      padding: 44px 24px;
       line-height: 1.7;
       transition: background 0.3s, color 0.3s;
     }
@@ -178,6 +173,7 @@
     .container {
       max-width: 640px;
       margin: 0 auto;
+      position: relative;
     }
 
     /* Floating Navbar - Top Right */
@@ -253,11 +249,6 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
-    /* Remove active indicator */
-    .nav-link::before {
-      display: none;
-    }
-
     #theme-toggle {
       background: none;
       border: none;
@@ -291,28 +282,10 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
-    /* Remove dark mode override for hover since base is now same */
-    /* [data-theme="dark"] #theme-toggle:hover { ... } -> REMOVE */
-
-
-
-    /* Adjust main padding - since nav is computed position, we just need standard centering padding */
-    body {
-      padding: 44px 24px;
-    }
-
-    .container {
-      max-width: 640px;
-      margin: 0 auto;
-      position: relative;
-    }
-
     /* Responsive: Switch to horizontal top/bottom on mobile */
     @media (max-width: 900px) {
       body {
         padding: 90px 24px 50px 24px;
-        padding-left: 24px;
-        /* Reset padding */
       }
 
       .side-navbar {
@@ -354,10 +327,6 @@
 
       .nav-link:hover {
         transform: none;
-      }
-
-      .nav-link::before {
-        display: none;
       }
 
       #theme-toggle {
@@ -448,17 +417,11 @@
         transform: none;
       }
 
-      /* Center the page - remove left padding */
+      /* Desktop centering — override left/right padding from base */
       body {
         padding-left: 32px;
         padding-right: 32px;
         max-width: 100%;
-      }
-
-      .container {
-        margin: 0 auto;
-        /* Center the container */
-        max-width: 640px;
       }
 
       #theme-toggle {
@@ -736,14 +699,10 @@
 
     .project-item {
       display: flex;
-      /* Flex layout for centering logo */
       align-items: flex-start;
-      /* Align to top to center against header group */
       gap: 16px;
-      /* Space between logo and text */
       text-decoration: none;
       color: inherit;
-      group: p-item;
     }
 
     .project-logo {
@@ -856,7 +815,6 @@
         display: none;
       }
 
-      /* Hide dates on very small screens if needed, but flex-wrap might be better. Keeping safe for now. */
     }
 
     /* Ancient Text Styles */
@@ -1188,36 +1146,19 @@
   </div>
 
   <script>
-    const t = document.getElementById('theme-toggle');
+    // Theme toggle. The data-theme attribute is set by the inline script in
+    // <head> before render to avoid a flash of the wrong theme.
     const h = document.documentElement;
     const icon = document.getElementById('theme-icon');
-
-    // Simple icon replacement logic (you might want two SVGs to toggle, but this is a quick fix to separate logic)
-    // Actually, let's just keep the sun/moon swap purely CSS or js logic if we had two icons. 
-    // For now, let's simple rotate it or just let the user know.
-    // Enhanced: Use different SVGs for better visual.
-
     const sunIcon = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
     const moonIcon = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
 
-    // Check saved theme or system preference
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-      h.dataset.theme = saved;
-      // Update icon based on saved
-      icon.innerHTML = saved === 'dark' ? moonIcon : sunIcon;
-    } else {
-      h.dataset.theme = 'light';
-      icon.innerHTML = sunIcon;
-    }
+    icon.innerHTML = h.dataset.theme === 'dark' ? moonIcon : sunIcon;
 
-    t.onclick = () => {
-      const current = h.dataset.theme;
-      const next = current === 'dark' ? 'light' : 'dark';
+    document.getElementById('theme-toggle').onclick = () => {
+      const next = h.dataset.theme === 'dark' ? 'light' : 'dark';
       h.dataset.theme = next;
       localStorage.setItem('theme', next);
-
-      // Animate/Swap Icon
       icon.innerHTML = next === 'dark' ? moonIcon : sunIcon;
     };
 
