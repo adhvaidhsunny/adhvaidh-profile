@@ -1226,7 +1226,7 @@
             history.replaceState(null, '', '/');
           } else {
             target.scrollIntoView({ behavior: 'smooth' });
-            history.replaceState(null, '', '/' + href);
+            history.replaceState(null, '', window.location.pathname);
           }
 
           // Safety: clear after 3s if detection never agrees
