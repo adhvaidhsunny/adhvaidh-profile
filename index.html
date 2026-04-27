@@ -16,7 +16,7 @@
   <link rel="canonical" href="https://adhvaidh.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+Malayalam:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Set theme before body renders to avoid flash of light theme -->
   <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';</script>
@@ -825,7 +825,7 @@
       font-size: 1.15rem;
       letter-spacing: 0.05em;
       opacity: 0.9;
-      margin-bottom: 28px;
+      margin-bottom: 14px;
       /* Adjusted spacing for main page */
       cursor: default;
       position: relative;
@@ -841,6 +841,12 @@
       transition: opacity 0.3s ease;
     }
 
+    .ancient-text .ml {
+      font-family: 'Noto Serif Malayalam', 'Times New Roman', serif;
+      font-style: italic;
+      color: var(--muted);
+    }
+
     .ancient-text .en {
       opacity: 0;
       font-style: normal;
@@ -849,7 +855,7 @@
       white-space: nowrap;
     }
 
-    .ancient-text:hover .el {
+    .ancient-text:hover .ml {
       opacity: 0;
     }
 
@@ -931,8 +937,8 @@
         solutions</span>
     </div>
     <div class="ancient-text">
-      <span class="el">Δόξα τῷ Χριστῷ τῷ Θεῷ ἡμῶν</span>
-      <span class="en">Glory to Christ my God</span>
+      <span class="ml">Δόξα τῷ Χριστῷ τῷ Θεῷ ἡμῶν</span>
+      <span class="en">ഞങ്ങളുടെ കർത്താവായ മിശിഹായേ, നിനക്കു സ്തുതി.</span>
     </div>
 
     <!-- Timeline Dropdown -->
